@@ -1,0 +1,20 @@
+.footer-nav {
+  gap: 10px;
+}
+.footer-nav li {
+  color: var(--text);
+  gap: 8px;
+  transition: color 300ms;
+}
+
+.footer-nav li svg {
+  margin-right: 8px;
+}
+
+.footer-nav li a {
+  color: inherit;
+}
+
+.footer-nav li:hover {
+  color: var(--title);
+}
