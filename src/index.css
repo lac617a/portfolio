@@ -7,7 +7,6 @@
 
   color: var(--title);
   color-scheme: light dark;
-  background-color: linear-gradient(180deg, #121212, #1b1b1b);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -45,7 +44,7 @@ a:hover,
 
 body {
   font-size: 15px;
-  background: linear-gradient(180deg, #121212, #1b1b1b);
+  background: linear-gradient(180deg, #1b1b1b, #18272F);
 }
 
 h1 {
@@ -103,7 +102,10 @@ ul {
 }
 
 @media only screen and (max-width: 768px) {
-
+  section,
+  footer {
+    padding: 24px !important;
+  }
 
   .bg-hero {
     background-position: 45% 100%;
@@ -148,12 +150,52 @@ ul {
   font-size: 1.25rem;
 }
 
+.text-green {
+  color: #00FF85;
+}
+
 .text-ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+  padding-bottom: 4rem;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.pulse {
+  display: inline-flex;
+  width: 8px;
+  height: 8px;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  background-color: #00FF85;
+  -webkit-animation: pulse 2s infinite;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(0, 255, 133, 0.4);
+  }
+
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 255, 133, 0.4);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(0, 255, 133, 0.4);
+  }
 }
 
 img {

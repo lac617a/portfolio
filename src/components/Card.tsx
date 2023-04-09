@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Box, Heading, Link, Paragraph, Stack } from 'native-piece'
+import { Box, Heading, Link, Paragraph, VStack } from 'native-piece'
 
 interface ICardProps {
   src: string;
@@ -36,7 +36,7 @@ const Card:FC<ICardProps> = (props) => {
           style={{ objectFit: "contain" }}
         />
       </Box>
-      <Stack.Block as="figcaption" padding="1rem" gap="8px">
+      <VStack as="figcaption" padding="1rem" gap="8px">
         <Heading
           as="h3"
           className="text text-h4 text-ellipsis"
@@ -46,7 +46,7 @@ const Card:FC<ICardProps> = (props) => {
         <Paragraph className="text text-grey text-ellipsis">
           {props.description}
         </Paragraph>
-      </Stack.Block>
+      </VStack>
     </Box>
   )
 }

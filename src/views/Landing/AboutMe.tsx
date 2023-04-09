@@ -1,4 +1,4 @@
-import { Box, Heading, Paragraph, Stack } from 'native-piece'
+import { Box, Heading, Paragraph, VStack } from 'native-piece'
 import ImgAboutMe from "../../assets/img/about-me.png";
 import { FaReact } from "react-icons/fa";
 import { TbLogicAnd } from "react-icons/tb";
@@ -8,19 +8,15 @@ export const AboutMe = () => {
   return (
     <Box as="section" id="about" className="container">
       <Box
-        display="grid"
-        gap="2rem"
-        paddingBottom="4rem"
-        gridTemplateRows="1fr"
-        gridTemplateColumns="repeat(auto-fit, minmax(200px, 1fr))"
+        className="grid"
         mediaMd={{
           paddingInline: 20
         }}>
-        <Stack.Block gap="48px">
-          <Stack.Block gap="0.5rem">
+        <VStack gap="48px">
+          <VStack gap="0.5rem">
             <Paragraph className="text text-h5 text-info">About me 🔥</Paragraph>
             <Heading className="text text-h2">Get to know me</Heading>
-            <Stack.Block className="text text-grey" gap="1rem">
+            <VStack className="text text-grey" gap="1rem">
               <Paragraph>
                 I am a developer based in <b>Colombia</b>. I am focused on&ensp;
                 <b>developing</b>&ensp;easy-to-use interfaces to offer the
@@ -38,16 +34,16 @@ export const AboutMe = () => {
                 I am constantly looking to learn new things every day and look for new
                 ways to improve my skills and knowledge to improve as a <b>developer frontend</b>.
               </Paragraph>
-            </Stack.Block>
-          </Stack.Block>
-        </Stack.Block>
-        <Stack.Block gap="48px">
+            </VStack>
+          </VStack>
+        </VStack>
+        <VStack gap="48px">
           <Box as="figure" height="375px">
             <img src={ImgAboutMe} alt="about-me" style={{ objectFit: "contain" }} />
           </Box>
-        </Stack.Block>
+        </VStack>
       </Box>
-      <Stack.Block gap="24px" mediaMd={{
+      <VStack gap="24px" mediaMd={{
           paddingInline: 20
         }}>
         <Heading className="text text-h4">What I do</Heading>
@@ -57,7 +53,7 @@ export const AboutMe = () => {
           paddingBottom="4rem"
           gridTemplateRows="1fr"
           gridTemplateColumns="repeat(auto-fit, minmax(200px, 1fr))">
-          <Stack.Block gap="8px">
+          <VStack gap="8px">
             <BiCodeCurly color="#61DBFB" size={34} />
             <Paragraph className="text text-h5">
               Coding
@@ -67,8 +63,8 @@ export const AboutMe = () => {
               Providing the users an enriching experience that responds to
               any device and screen size.
             </Paragraph>
-          </Stack.Block>
-          <Stack.Block gap="8px">
+          </VStack>
+          <VStack gap="8px">
             <FaReact color="#61DBFB" size={40} />
             <Paragraph className="text text-h5">
               React / React Native
@@ -79,8 +75,8 @@ export const AboutMe = () => {
               performance. Also separate the presentation logic from the business logic
               into separate or modulated components.
             </Paragraph>
-          </Stack.Block>
-          <Stack.Block gap="8px">
+          </VStack>
+          <VStack gap="8px">
             <TbLogicAnd color="#61DBFB" size={40} />
             <Paragraph className="text text-h5">
               Logic and good practices
@@ -92,9 +88,9 @@ export const AboutMe = () => {
               and lazy loading. I keep your code organized and readable using common design
               patterns and good coding practices.
             </Paragraph>
-          </Stack.Block>
+          </VStack>
         </Box>
-      </Stack.Block>
+      </VStack>
     </Box>
   )
 }

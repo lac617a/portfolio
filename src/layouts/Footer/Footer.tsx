@@ -1,4 +1,4 @@
-import { Box, Stack, Paragraph, Heading, Link } from "native-piece";
+import { Box, Stack, Paragraph, Heading, Link, VStack } from "native-piece";
 import { BsGithub, BsFacebook, BsInstagram, BsLinkedin } from "react-icons/bs";
 
 import Avatar from "../../components/Avatar";
@@ -10,10 +10,10 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <Box as="footer" backgroundColor="var(--background)" width="100%">
-      <Stack.Block className="container" gap="2rem">
+    <Box as="footer" backgroundColor="var(--background)">
+      <VStack className="container" gap="2rem" mediaMd={{padding: 0}}>
         <Stack
-          borderBottom="1px solid rgba(221, 221, 221, 0.2)" 
+          borderBottom="1px solid rgba(221, 221, 221, 0.2)"
           justifyContent="space-between"
           alignItems="center"
           flexWrap="wrap"
@@ -22,8 +22,8 @@ const Footer = () => {
           }}>
           <Stack gap="24px" marginBottom="2rem" flexWrap="wrap">
             <Box>
-              <Heading>Navigation</Heading>
-              <Stack.Block as="ul" className="footer-nav">
+              <Heading mediaMd={{fontSize: "16px"}}>Navigation</Heading>
+              <VStack as="ul" className="footer-nav">
                 <Box as="li">
                   <a href="#">Home</a>
                 </Box>
@@ -42,22 +42,22 @@ const Footer = () => {
                 <Box as="li">
                   <a href="#contact">Contact</a>
                 </Box>
-              </Stack.Block>
+              </VStack>
             </Box>
             <Box>
-              <Heading>Products</Heading>
-              <Stack.Block as="ul" className="footer-nav">
+              <Heading mediaMd={{fontSize: "16px"}}>Products</Heading>
+              <VStack as="ul" className="footer-nav">
                 <Box as="li">
                   <a
                     href="https://native-piece.com/"
                     target="_blank"
                     rel="noopener noreferrer">Native-piece</a>
                 </Box>
-              </Stack.Block>
+              </VStack>
             </Box>
             <Box>
-              <Heading>Social</Heading>
-              <Stack.Block as="ul" className="footer-nav">
+              <Heading mediaMd={{fontSize: "16px"}}>Social</Heading>
+              <VStack as="ul" className="footer-nav">
                 <Box as="li">
                   <BsFacebook />
                   <a
@@ -86,23 +86,27 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer">Github</a>
                 </Box>
-              </Stack.Block>
+              </VStack>
             </Box>
           </Stack>
-          <Stack.Block>
+          <VStack>
             <Avatar src={Logo} name="Yoydev" subtext="Developer" />
-          </Stack.Block>
+          </VStack>
         </Stack>
-        <Stack justifyContent="space-between" flexWrap="wrap" gap={20} mediaMd={{
-          justifyContent: "center",
-        }}>
+        <Stack
+          justifyContent="space-between"
+          flexWrap="wrap"
+          gap={20}
+          mediaMd={{
+            justifyContent: "center",
+          }}>
           <Stack gap="8px">
             <Paragraph>
               &#169; {new Date().getFullYear()}.
             </Paragraph>
             <Paragraph>All rights reserved.</Paragraph>
           </Stack>
-          <Stack.Block gap="8px">
+          <VStack gap="8px">
             <Paragraph>Made with &#128302; in Colombia</Paragraph>
             <Paragraph>
               created with&ensp;
@@ -110,10 +114,10 @@ const Footer = () => {
                 href="https://native-piece.com/"
                 target="_blank"
                 rel="noopener noreferrer">NATIVE-PIECE</Link>
-              </Paragraph>
-          </Stack.Block>
+            </Paragraph>
+          </VStack>
         </Stack>
-      </Stack.Block>
+      </VStack>
     </Box>
   )
 }

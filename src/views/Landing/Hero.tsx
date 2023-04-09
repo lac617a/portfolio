@@ -1,4 +1,4 @@
-import { Box, Heading, Paragraph, Stack } from "native-piece";
+import { Box, Heading, Paragraph, Stack, VStack } from "native-piece";
 
 export const Hero = () => {
   return (
@@ -6,10 +6,10 @@ export const Hero = () => {
       as="section"
       className="bg-hero">
       <Box className="container">
-        <Stack.Block gap="10px" maxWidth={520}>
+        <VStack gap="10px" maxWidth={520}>
           <Paragraph className="text text-grey" fontSize="2rem">Hi there, I'm Dominyel</Paragraph>
           <Heading className="text text-h1">Frontend Developer</Heading>
-          <Stack.Block gap="1rem">
+          <VStack gap="1rem">
             <Paragraph className="text text-grey" fontSize="1.25rem">
               I help people and brands reach their goals by designing & building digital products that solve real user needs
             </Paragraph>
@@ -31,8 +31,8 @@ export const Hero = () => {
               >More about me
               </Box>
             </Stack>
-          </Stack.Block>
-        </Stack.Block>
+          </VStack>
+        </VStack>
       </Box>
     </Box>
   );
