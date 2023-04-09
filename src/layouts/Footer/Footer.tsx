@@ -82,7 +82,7 @@ const Footer = () => {
                 <Box as="li">
                   <BsGithub />
                   <a
-                    href="https://github.com/lac617a/native-piece"
+                    href="https://github.com/lac617a"
                     target="_blank"
                     rel="noopener noreferrer">Github</a>
                 </Box>
