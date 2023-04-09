@@ -11,13 +11,15 @@ const Header = () => {
       zIndex={100}
       backdropFilter="saturate(180%) blur(20px)"
       backgroundColor="rgba(35, 35, 35, 0.9019607843)"
-      boxShadow="0 2px 4px 0 rgba(0, 0, 0, 0.04), 0 -1px 0 0 rgba(0, 0, 0, 0.08);">
+      boxShadow="0 2px 4px 0 rgba(0, 0, 0, 0.04), 0 -1px 0 0 rgba(0, 0, 0, 0.08)">
       <Stack
         padding={20}
         alignItems="center"
         justifyContent="space-between">
         <Avatar src={Logo} name="Yoydev" />
-        <Stack as="ul" gap="2rem">
+        <Stack as="ul" gap="2rem" mediaMd={{
+          display: "none"
+        }}>
           <Box as="li">
             <a href="#projects">Projects</a>
           </Box>

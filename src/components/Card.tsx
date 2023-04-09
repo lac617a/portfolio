@@ -1,7 +1,14 @@
-import React from 'react'
+import { FC } from 'react'
 import { Box, Heading, Link, Paragraph, Stack } from 'native-piece'
 
-const Card = () => {
+interface ICardProps {
+  src: string;
+  link: string;
+  title: string;
+  description: string;
+}
+
+const Card:FC<ICardProps> = (props) => {
   return (
     <Box
       as="figure"
@@ -19,25 +26,27 @@ const Card = () => {
         position="absolute"
         inset="0 0 0 0"
         zIndex={10}
-        href="https://github.com/lac617a"
+        href={props.link}
         target="_blank"
         rel="noopener noreferrer" />
       <Box >
         <img
-          src="https://i.ibb.co/XkGVBL6/default.png"
-          alt="card-"
+          src={props.src}
+          alt={`card-${props.title}`}
           style={{ objectFit: "contain" }}
         />
       </Box>
-      <Stack.V as="figcaption" padding="1rem" gap="8px">
+      <Stack.Block as="figcaption" padding="1rem" gap="8px">
         <Heading
           as="h3"
           className="text text-h4 text-ellipsis"
-        >RUD | Ecommerce redesign</Heading>
+        >
+        {props.title}
+        </Heading>
         <Paragraph className="text text-grey text-ellipsis">
-          This project is a UX case study about the website 'RUD' an Argentinian ecommerce of fashion products, mainly shoes, for women.
+          {props.description}
         </Paragraph>
-      </Stack.V>
+      </Stack.Block>
     </Box>
   )
 }

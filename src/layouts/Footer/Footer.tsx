@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Stack, Paragraph, Heading, Link } from "native-piece";
 import { BsGithub, BsFacebook, BsInstagram, BsLinkedin } from "react-icons/bs";
 
@@ -12,14 +11,19 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <Box as="footer" backgroundColor="var(--background)" width="100%">
-      <Stack.V className="container" gap="2rem">
+      <Stack.Block className="container" gap="2rem">
         <Stack
           borderBottom="1px solid rgba(221, 221, 221, 0.2)" 
-          justifyContent="space-between" alignItems="center">
-          <Stack gap="24px" marginBottom="2rem">
+          justifyContent="space-between"
+          alignItems="center"
+          flexWrap="wrap"
+          mediaMd={{
+            paddingBlock: 20
+          }}>
+          <Stack gap="24px" marginBottom="2rem" flexWrap="wrap">
             <Box>
               <Heading>Navigation</Heading>
-              <Stack.V as="ul" className="footer-nav">
+              <Stack.Block as="ul" className="footer-nav">
                 <Box as="li">
                   <a href="#">Home</a>
                 </Box>
@@ -38,22 +42,22 @@ const Footer = () => {
                 <Box as="li">
                   <a href="#contact">Contact</a>
                 </Box>
-              </Stack.V>
+              </Stack.Block>
             </Box>
             <Box>
               <Heading>Products</Heading>
-              <Stack.V as="ul" className="footer-nav">
+              <Stack.Block as="ul" className="footer-nav">
                 <Box as="li">
                   <a
                     href="https://native-piece.com/"
                     target="_blank"
                     rel="noopener noreferrer">Native-piece</a>
                 </Box>
-              </Stack.V>
+              </Stack.Block>
             </Box>
             <Box>
               <Heading>Social</Heading>
-              <Stack.V as="ul" className="footer-nav">
+              <Stack.Block as="ul" className="footer-nav">
                 <Box as="li">
                   <BsFacebook />
                   <a
@@ -82,21 +86,23 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer">Github</a>
                 </Box>
-              </Stack.V>
+              </Stack.Block>
             </Box>
           </Stack>
-          <Stack.V>
+          <Stack.Block>
             <Avatar src={Logo} name="Yoydev" subtext="Developer" />
-          </Stack.V>
+          </Stack.Block>
         </Stack>
-        <Stack justifyContent="space-between">
+        <Stack justifyContent="space-between" flexWrap="wrap" gap={20} mediaMd={{
+          justifyContent: "center",
+        }}>
           <Stack gap="8px">
             <Paragraph>
               &#169; {new Date().getFullYear()}.
             </Paragraph>
             <Paragraph>All rights reserved.</Paragraph>
           </Stack>
-          <Stack.V gap="8px">
+          <Stack.Block gap="8px">
             <Paragraph>Made with &#128302; in Colombia</Paragraph>
             <Paragraph>
               created with&ensp;
@@ -105,9 +111,9 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer">NATIVE-PIECE</Link>
               </Paragraph>
-          </Stack.V>
+          </Stack.Block>
         </Stack>
-      </Stack.V>
+      </Stack.Block>
     </Box>
   )
 }
