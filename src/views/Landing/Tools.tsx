@@ -1,6 +1,6 @@
 import { Box, Heading, Paragraph, VStack } from "native-piece"
 import Card from "../../components/Card"
-import IMGNativePiece from "../../assets/img/projects/native-piece-web.png";
+import IMGNativePiece from "../../assets/img/projects/native-piece.png";
 export const Tools = () => {
   return (
     <Box as="section" id="tools" className="container">
