@@ -1,4 +1,4 @@
-import { Box, Heading, Paragraph, VStack } from 'native-piece';
+import { Box, Heading, Typography, VStack } from 'native-piece';
 import Card from '../../components/Card';
 
 export const Projects = () => {
@@ -9,9 +9,9 @@ export const Projects = () => {
         borderBottom="1px solid rgba(221, 221, 221, 0.2)">
         <VStack gap="48px">
           <VStack gap="0.5rem">
-            <Paragraph className="text text-h5 text-info">My projects 🔮</Paragraph>
+            <Typography className="text text-h5 text-info">My projects 🔮</Typography>
             <Heading className="text text-h2">Some of my latest works</Heading>
-            <Paragraph className="text text-grey">Case studies, digital products and design systems which are visually pleasing, user-centric and easy to use.</Paragraph>
+            <Typography className="text text-grey">Case studies, digital products and design systems which are visually pleasing, user-centric and easy to use.</Typography>
           </VStack>
           {PROJECTS.slice(0, 2).map((item, index) => (
             <Card key={index} {...item} />

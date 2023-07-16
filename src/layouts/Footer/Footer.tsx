@@ -1,12 +1,9 @@
-import { Box, Stack, Paragraph, Heading, Link, VStack } from "native-piece";
+import { Box, Stack, Typography, Heading, Link, VStack } from "native-piece";
 import { BsGithub, BsFacebook, BsInstagram, BsLinkedin } from "react-icons/bs";
 
 import Avatar from "../../components/Avatar";
 import Logo from "../../assets/img/logo.png";
 import "./Footer.css";
-
-// ubete
-// ubicacion-barberia-en-tiempo-real
 
 const Footer = () => {
   return (
@@ -32,9 +29,6 @@ const Footer = () => {
                 </Box>
                 <Box as="li">
                   <a href="#about">About me</a>
-                </Box>
-                <Box as="li">
-                  <a href="#blog">Blog</a>
                 </Box>
                 <Box as="li">
                   <a href="#tools">Tools</a>
@@ -101,20 +95,20 @@ const Footer = () => {
             justifyContent: "center",
           }}>
           <Stack gap="8px">
-            <Paragraph>
+            <Typography>
               &#169; {new Date().getFullYear()}.
-            </Paragraph>
-            <Paragraph>All rights reserved.</Paragraph>
+            </Typography>
+            <Typography>All rights reserved.</Typography>
           </Stack>
           <VStack gap="8px">
-            <Paragraph>Made with &#128302; in Colombia</Paragraph>
-            <Paragraph>
+            <Typography>Made with &#128302; in Colombia</Typography>
+            <Typography>
               created with&ensp;
               <Link
                 href="https://native-piece.com/"
                 target="_blank"
                 rel="noopener noreferrer">NATIVE-PIECE</Link>
-            </Paragraph>
+            </Typography>
           </VStack>
         </Stack>
       </VStack>

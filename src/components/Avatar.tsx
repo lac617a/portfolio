@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Box, Stack, Paragraph, VStack } from "native-piece";
+import { Box, Stack, Typography, VStack } from "native-piece";
 
 interface IAvatarProps {
   src: string;
@@ -21,10 +21,10 @@ const Avatar: FC<IAvatarProps> = (props) => {
               style={{ objectFit: "cover", width: "100%" }}
               src={props.src} alt={props.name} />
           </Box>
-          <Paragraph fontSize={props.size}>{props.name}</Paragraph>
+          <Typography fontSize={props.size}>{props.name}</Typography>
         </Stack>
       </Box>
-      <Paragraph fontSize={props.size}>{props.subtext}</Paragraph>
+      <Typography fontSize={props.size}>{props.subtext}</Typography>
     </VStack>
   )
 }

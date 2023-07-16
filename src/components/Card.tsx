@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Box, Heading, Link, Paragraph, VStack } from 'native-piece'
+import { Box, Heading, Link, Typography, VStack } from 'native-piece'
 
 interface ICardProps {
   src: string;
@@ -43,9 +43,9 @@ const Card:FC<ICardProps> = (props) => {
         >
         {props.title}
         </Heading>
-        <Paragraph className="text text-grey text-ellipsis">
+        <Typography className="text text-grey text-ellipsis">
           {props.description}
-        </Paragraph>
+        </Typography>
       </VStack>
     </Box>
   )
