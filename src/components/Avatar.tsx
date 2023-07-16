@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Box, Stack, Typography, VStack } from "native-piece";
+import { Box, Link, Stack, Typography, VStack } from "native-piece";
 
 interface IAvatarProps {
   src: string;
@@ -10,7 +10,7 @@ interface IAvatarProps {
 const Avatar: FC<IAvatarProps> = (props) => {
   return (
     <VStack gap={props.subtext ? "16px" : 0} height="min-content">
-      <Box as="a">
+      <Link>
         <Stack alignItems="center" gap="8px">
           <Box
             borderRadius={100}
@@ -23,7 +23,7 @@ const Avatar: FC<IAvatarProps> = (props) => {
           </Box>
           <Typography fontSize={props.size}>{props.name}</Typography>
         </Stack>
-      </Box>
+      </Link>
       <Typography fontSize={props.size}>{props.subtext}</Typography>
     </VStack>
   )
