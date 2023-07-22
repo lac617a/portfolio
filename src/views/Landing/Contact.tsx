@@ -61,7 +61,7 @@ export const Contact = () => {
           }}>
           <Stack gap="1rem" alignItems="center">
             <Link
-              href="https://www.linkedin.com/in/dominyel-rivera/"
+              href="https://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=dominyel-rivera"
               target="_blank"
               rel="noopener noreferrer"
               position="absolute"
