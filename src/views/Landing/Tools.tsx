@@ -13,7 +13,7 @@ export const Tools = () => {
       </VStack>
       <Box className="grid" maxWidth={400} marginTop={20}>
         <Card
-          title="NativePiece"
+          title="Native Piece"
           description="React primitive UI components. Use the best bits of ES6 and CSS to style your apps without stress"
           src={IMGNativePiece}
           link="https://native-piece.com/"

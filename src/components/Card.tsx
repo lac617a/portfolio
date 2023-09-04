@@ -8,7 +8,7 @@ interface ICardProps {
   description: string;
 }
 
-const Card:FC<ICardProps> = (props) => {
+const Card: FC<ICardProps> = (props) => {
   return (
     <Box
       as="figure"
@@ -29,7 +29,7 @@ const Card:FC<ICardProps> = (props) => {
         href={props.link}
         target="_blank"
         rel="noopener noreferrer" />
-      <Box >
+      <Box>
         <img
           src={props.src}
           alt={`card-${props.title}`}
@@ -41,7 +41,7 @@ const Card:FC<ICardProps> = (props) => {
           as="h3"
           className="text text-h4 text-ellipsis"
         >
-        {props.title}
+          {props.title}
         </Heading>
         <Typography className="text text-grey text-ellipsis">
           {props.description}

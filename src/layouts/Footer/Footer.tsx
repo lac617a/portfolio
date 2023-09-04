@@ -8,7 +8,7 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <Box as="footer" backgroundColor="var(--background)">
-      <VStack className="container" gap="2rem" mediaMd={{padding: 0}}>
+      <VStack className="container" gap="2rem" mediaMd={{ padding: 0 }}>
         <Stack
           borderBottom="1px solid rgba(221, 221, 221, 0.2)"
           justifyContent="space-between"
@@ -19,7 +19,7 @@ const Footer = () => {
           }}>
           <Stack gap="24px" marginBottom="2rem" flexWrap="wrap">
             <Box>
-              <Heading mediaMd={{fontSize: "16px"}}>Navigation</Heading>
+              <Heading mediaMd={{ fontSize: "16px" }}>Navigation</Heading>
               <VStack as="ul" className="footer-nav">
                 <Box as="li">
                   <a href="#">Home</a>
@@ -31,6 +31,9 @@ const Footer = () => {
                   <a href="#about">About me</a>
                 </Box>
                 <Box as="li">
+                  <a href="#toolUsers">Website</a>
+                </Box>
+                <Box as="li">
                   <a href="#tools">Tools</a>
                 </Box>
                 <Box as="li">
@@ -39,18 +42,29 @@ const Footer = () => {
               </VStack>
             </Box>
             <Box>
-              <Heading mediaMd={{fontSize: "16px"}}>Products</Heading>
+              <Heading mediaMd={{ fontSize: "16px" }}>Products</Heading>
               <VStack as="ul" className="footer-nav">
                 <Box as="li">
                   <a
                     href="https://native-piece.com/"
                     target="_blank"
-                    rel="noopener noreferrer">Native-piece</a>
+                    rel="noopener noreferrer">Native Piece</a>
                 </Box>
               </VStack>
             </Box>
             <Box>
-              <Heading mediaMd={{fontSize: "16px"}}>Social</Heading>
+              <Heading mediaMd={{ fontSize: "16px" }}>Website</Heading>
+              <VStack as="ul" className="footer-nav">
+                <Box as="li">
+                  <a
+                    href="https://west-fast.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer">West Fast</a>
+                </Box>
+              </VStack>
+            </Box>
+            <Box>
+              <Heading mediaMd={{ fontSize: "16px" }}>Social</Heading>
               <VStack as="ul" className="footer-nav">
                 <Box as="li">
                   <BsFacebook />
