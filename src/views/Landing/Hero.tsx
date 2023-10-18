@@ -1,19 +1,19 @@
-import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Heading, Typography, Stack, VStack, Button } from "native-piece";
 
 export const Hero = () => {
-  const [state, setState] = useState<boolean>(false);
+  const { t } = useTranslation();
   return (
     <Box
       as="section"
       className="bg-hero">
       <Box className="container">
         <VStack gap="10px" maxWidth={520}>
-          <Typography className="text text-grey" fontSize="2rem">Hi there, I'm Dominyel</Typography>
+          <Typography className="text text-grey" fontSize="2rem">{t("hi there, I'm")} Dominyel</Typography>
           <Heading className="text text-h1">Frontend Developer</Heading>
           <VStack gap="1rem">
             <Typography className="text text-grey" fontSize="1.25rem">
-              I help people and brands reach their goals by designing & building digital products that solve real user needs
+              {t("i help people and brands")}
             </Typography>
             <Stack gap="1rem">
               <Button
@@ -22,13 +22,15 @@ export const Hero = () => {
                 backgroundColor="var(--secundary)"
                 mediaMd={{ padding: "1rem" }}
                 onClick={() => window.location.href = "#projects"}>
-                See my projects
+                {t("see my projects")}
               </Button>
               <Button
                 padding="1rem 2rem"
                 mediaMd={{ padding: "1rem" }}
-                onClick={() => window.location.href = "#about"}
-              >More about me
+                color="var(--primary)"
+                backgroundColor="var(--secundary)"
+                onClick={() => window.location.href = "#about"}>
+              {t("more about me")}
               </Button>
             </Stack>
           </VStack>

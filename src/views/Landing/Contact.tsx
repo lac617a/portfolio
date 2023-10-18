@@ -1,28 +1,29 @@
+import { useTranslation } from "react-i18next";
 import { Box, Heading, Link, Button, Typography, Stack, VStack } from "native-piece";
 import { MdEmail } from "react-icons/md";
 import { FaLinkedinIn } from "react-icons/fa";
 
 export const Contact = () => {
+  const { t } = useTranslation();
   return (
     <Box as="section" id="contact" className="container">
       <Box>
         <VStack gap="0.5rem">
           <Typography className="text text-h5 text-info">
-            Get in touch 😉
+            {t("get in touch")} 😉
           </Typography>
-          <Heading className="text text-h2">Contact me</Heading>
+          <Heading className="text text-h2">{t("contact-me")}</Heading>
           <Typography position="relative" className="text text-green">
             <Typography as="span" className="pulse" />
-            I'm currently available for work.
+            {t("i'm currently available for work")}
           </Typography>
         </VStack>
         <Box className="text text-grey">
           <Typography marginBlock={30}>
-            I'm always looking for new opportunities to help
-            you build your product.
+            {t("i'm always looking for new opportunities to help you build your product")}
           </Typography>
           <Typography marginBlock={30}>
-            Feel free to contact me. I'm waiting for your message.
+            {t("feel free to contact me")}
           </Typography>
         </Box>
       </Box>

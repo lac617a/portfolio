@@ -16,6 +16,7 @@
 
   --primary: #18272F;
   --secundary: #fbad34;
+  --color-three: #646cff;
   --background: #1b1b1b;
   --title: #f5f5f5;
   --info: #D34645;
@@ -90,15 +91,15 @@ ul {
 
 .bg-hero {
   background:
-    linear-gradient(0deg, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, 0.1) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, 0.1) 100%),
     url("./assets/img/Hero.png");
 
   height: 43vh;
   padding: 12rem 1rem !important;
-  filter: grayscale(50%);
   background-attachment: scroll;
-  background-size: cover;
-  background-position: 80% 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
 }
 
 @media only screen and (max-width: 768px) {

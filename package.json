@@ -9,9 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "i18next": "^23.5.1",
     "native-piece": "^2.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^13.3.0",
     "react-icons": "^4.8.0"
   },
   "devDependencies": {

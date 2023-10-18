@@ -1,8 +1,12 @@
-import { Box, Stack } from "native-piece";
+import { Box, Button, Stack } from "native-piece";
 import Avatar from "../components/Avatar";
 import Logo from "../assets/img/logo.png";
+import { BsTranslate } from "react-icons/bs";
+import { useTranslation } from "react-i18next";
+import i18n from "../locales/i18n";
 
 const Header = () => {
+  const { t } = useTranslation();
   return (
     <Box
       as="header"
@@ -21,17 +25,23 @@ const Header = () => {
           display: "none"
         }}>
           <Box as="li">
-            <a href="#projects">Projects</a>
+            <a href="#projects">{t("projects")}</a>
           </Box>
           <Box as="li">
-            <a href="#about">About me</a>
+            <a href="#about">{t("about-me")}</a>
           </Box>
           <Box as="li">
-            <a href="#tools">Tools</a>
+            <a href="#tools">{t("tools")}</a>
           </Box>
           <Box as="li">
-            <a href="#contact">Contact</a>
+            <a href="#contact">{t("contact")}</a>
           </Box>
+          <Button
+            padding={0}
+            color="var(--white)"
+            onClick={() => i18n.changeLanguage(i18n.language === "es" ? "en" : "es")}>
+            <BsTranslate color="var(--white)" />
+          </Button>
         </Stack>
       </Stack>
     </Box>

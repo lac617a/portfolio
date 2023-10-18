@@ -1,48 +1,50 @@
+import "./Footer.css";
+import { useTranslation } from "react-i18next";
 import { Box, Stack, Typography, Heading, Link, VStack } from "native-piece";
-import { BsGithub, BsFacebook, BsInstagram, BsLinkedin } from "react-icons/bs";
 
 import Avatar from "../../components/Avatar";
+
+// ASSETS
 import Logo from "../../assets/img/logo.png";
-import "./Footer.css";
+import { BsGithub, BsFacebook, BsInstagram, BsLinkedin } from "react-icons/bs";
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <Box as="footer" backgroundColor="var(--background)">
       <VStack className="container" gap="2rem" mediaMd={{ padding: 0 }}>
         <Stack
-          borderBottom="1px solid rgba(221, 221, 221, 0.2)"
-          justifyContent="space-between"
-          alignItems="center"
           flexWrap="wrap"
-          mediaMd={{
-            paddingBlock: 20
-          }}>
+          alignItems="center"
+          justifyContent="space-between"
+          mediaMd={{ paddingBlock: 20 }}
+          borderBottom="1px solid rgba(221, 221, 221, 0.2)">
           <Stack gap="24px" marginBottom="2rem" flexWrap="wrap">
             <Box>
-              <Heading mediaMd={{ fontSize: "16px" }}>Navigation</Heading>
+              <Heading mediaMd={{ fontSize: "16px" }}>{t("navigation")}</Heading>
               <VStack as="ul" className="footer-nav">
                 <Box as="li">
-                  <a href="#">Home</a>
+                  <a href="#">{t("home")}</a>
                 </Box>
                 <Box as="li">
-                  <a href="#projects">Projects</a>
+                  <a href="#projects">{t("projects")}</a>
                 </Box>
                 <Box as="li">
-                  <a href="#about">About me</a>
+                  <a href="#about">{t("about-me")}</a>
                 </Box>
                 <Box as="li">
-                  <a href="#toolUsers">Website</a>
+                  <a href="#toolUsers">{t("website")}</a>
                 </Box>
                 <Box as="li">
-                  <a href="#tools">Tools</a>
+                  <a href="#tools">{t("tools")}</a>
                 </Box>
                 <Box as="li">
-                  <a href="#contact">Contact</a>
+                  <a href="#contact">{t("contact")}</a>
                 </Box>
               </VStack>
             </Box>
             <Box>
-              <Heading mediaMd={{ fontSize: "16px" }}>Products</Heading>
+              <Heading mediaMd={{ fontSize: "16px" }}>{t("products")}</Heading>
               <VStack as="ul" className="footer-nav">
                 <Box as="li">
                   <a
@@ -53,7 +55,7 @@ const Footer = () => {
               </VStack>
             </Box>
             <Box>
-              <Heading mediaMd={{ fontSize: "16px" }}>Website</Heading>
+              <Heading mediaMd={{ fontSize: "16px" }}>{t("website")}</Heading>
               <VStack as="ul" className="footer-nav">
                 <Box as="li">
                   <a
@@ -102,22 +104,20 @@ const Footer = () => {
           </VStack>
         </Stack>
         <Stack
-          justifyContent="space-between"
-          flexWrap="wrap"
           gap={20}
-          mediaMd={{
-            justifyContent: "center",
-          }}>
-          <Stack gap="8px">
+          flexWrap="wrap"
+          justifyContent="space-between"
+          mediaMd={{ justifyContent: "center" }}>
+          <Stack gap={8}>
             <Typography>
               &#169; {new Date().getFullYear()}.
             </Typography>
-            <Typography>All rights reserved.</Typography>
+            <Typography>{t("all rights reserved")}.</Typography>
           </Stack>
-          <VStack gap="8px">
-            <Typography>Made with &#128302; in Colombia</Typography>
+          <VStack gap={8}>
+            <Typography>{t("made with")} &#128302; {t("in")} Colombia</Typography>
             <Typography>
-              created with&ensp;
+              {t("created with")}&ensp;
               <Link
                 href="https://native-piece.com/"
                 target="_blank"

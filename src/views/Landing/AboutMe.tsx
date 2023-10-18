@@ -1,40 +1,48 @@
-import { Box, Heading, Typography, VStack } from 'native-piece'
+import { useTranslation } from 'react-i18next';
+import { Box, Button, Heading, Typography, VStack } from 'native-piece'
+
+// ASSETS
+import CV from "../../assets/cv.pdf";
 import ImgAboutMe from "../../assets/img/about-me.png";
 import { FaReact } from "react-icons/fa";
 import { TbLogicAnd } from "react-icons/tb";
 import { BiCodeCurly } from "react-icons/bi";
 
 export const AboutMe = () => {
+  const { t } = useTranslation();
+  const handleDownloadCv = () => {
+    const anchor = document.createElement("a");
+    anchor.href = CV;
+    anchor.download = "Dominyel Rivera_Front-end Developer";
+    anchor.click();
+  }
   return (
     <Box as="section" id="about" className="container">
       <Box
         className="grid"
-        mediaMd={{
-          paddingInline: 20
-        }}>
+        mediaMd={{ paddingInline: 20 }}>
         <VStack gap="48px">
           <VStack gap="0.5rem">
-            <Typography className="text text-h5 text-info">About me 🔥</Typography>
-            <Heading className="text text-h2">Get to know me</Heading>
+            <Typography className="text text-h5 text-info">{t("about-me")} 🔥</Typography>
+            <Heading className="text text-h2">{t("get to know me")}</Heading>
             <VStack className="text text-grey" gap="1rem">
               <Typography>
-                I am a developer based in <b>Colombia</b>. I am focused on&ensp;
-                <b>developing</b>&ensp;easy-to-use interfaces to offer the
-                best product. I am passionate about improving the lives of
-                other developers by creating tools to streamline work
+                {t("i am a developer based in Colombia")}
               </Typography>
               <Typography>
-                I have experience working in agile <b>environments</b> and have worked through
-                the entire product development cycle, from ideation to delivery.
-                I've worked as a <b>freelancer</b> to help clients design and build unique
-                products that were visually strong, worked beautifully, were easy to use,
-                but most importantly, focused on the <b>user experience</b>.
+                {t("i have experience working in agile environments")}
               </Typography>
               <Typography>
-                I am constantly looking to learn new things every day and look for new
-                ways to improve my skills and knowledge to improve as a <b>developer frontend</b>.
+                {t("i am constantly looking")}
               </Typography>
             </VStack>
+            <Button
+              padding="1rem"
+              width="max-content"
+              color="var(--white)"
+              backgroundColor="var(--color-three)"
+              onClick={handleDownloadCv}
+            >{t("download CV")}</Button>
           </VStack>
         </VStack>
         <VStack gap="48px">
@@ -43,10 +51,8 @@ export const AboutMe = () => {
           </Box>
         </VStack>
       </Box>
-      <VStack gap="24px" mediaMd={{
-          paddingInline: 20
-        }}>
-        <Heading className="text text-h4">What I do</Heading>
+      <VStack gap="24px" mediaMd={{ paddingInline: 20 }}>
+        <Heading className="text text-h4">{t("what I do")}</Heading>
         <Box
           display="grid"
           gap="2rem"
@@ -56,12 +62,10 @@ export const AboutMe = () => {
           <VStack gap="8px">
             <BiCodeCurly color="#61DBFB" size={34} />
             <Typography className="text text-h5">
-              Coding
+              {t("coding")}
             </Typography>
             <Typography className="text text-grey">
-              Building responsive websites with a “Mobile First” approach.
-              Providing the users an enriching experience that responds to
-              any device and screen size.
+              {t("building responsive websites with a Mobile First approach")}
             </Typography>
           </VStack>
           <VStack gap="8px">
@@ -70,23 +74,16 @@ export const AboutMe = () => {
               React / React Native
             </Typography>
             <Typography className="text text-grey">
-              Understand basic React concepts such as components, state, properties,
-              and use tools like React DevTools to help debug and optimize your app's
-              performance. Also separate the presentation logic from the business logic
-              into separate or modulated components.
+              {t("understand basic React concepts such as components, state, properties")}
             </Typography>
           </VStack>
           <VStack gap="8px">
             <TbLogicAnd color="#61DBFB" size={40} />
             <Typography className="text text-h5">
-              Logic and good practices
+              {t("logic and good practices")}
             </Typography>
             <Typography className="text text-grey">
-              I use add-on libraries and frameworks like Redux or React Router to handle
-              application state management and navigation. I make sure to optimize the
-              performance of your application using techniques like conditional rendering
-              and lazy loading. I keep your code organized and readable using common design
-              patterns and good coding practices.
+              {t("i use add-on libraries and frameworks like Redux or React Router")}
             </Typography>
           </VStack>
         </Box>
