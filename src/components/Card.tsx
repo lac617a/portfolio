@@ -5,6 +5,7 @@ interface ICardProps {
   src: string;
   link: string;
   title: string;
+  hidden?: boolean
   description: string;
 }
 
@@ -15,6 +16,7 @@ const Card: FC<ICardProps> = (props) => {
       borderRadius={8}
       overflow="hidden"
       position="relative"
+      hidden={props.hidden}
       backgroundColor="#232323"
       pseudos={{
         ":hover": {
