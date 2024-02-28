@@ -16,7 +16,7 @@ export const ToolUsers = () => {
           {t("i created these resources to help people")}
         </Typography>
       </VStack>
-      <Box className="grid" gridTemplateColumns="repeat(auto-fit, minmax(378px, 378px))" marginTop={20}>
+      <Box className="grid" marginTop={20}>
         <Card
           title="West Fast"
           description="West fast, te ofrecemos una plataforma dinámica y divertida para poner a prueba y mejorar tus habilidades de escritura a toda velocidad."
@@ -28,6 +28,12 @@ export const ToolUsers = () => {
           description="Fusionar dados - `Arrastre los dados para moverlos` los mismos dados se fusionarán en un número mayor de dados."
           src="https://i.ibb.co/QpT4vvJ/Fusionar-dados.png"
           link="https://dice-merge.club/"
+        />
+        <Card
+          title="Melife"
+          description="Te invito a explorar una plataforma completamente anónima donde puedes expresar libremente tus pensamientos."
+          src="https://i.ibb.co/fHwkjY8/melife.jpg"
+          link="https://melife.vercel.app/"
         />
       </Box>
     </Box>
