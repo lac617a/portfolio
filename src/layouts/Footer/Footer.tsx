@@ -99,6 +99,15 @@ const Footer = () => {
                     Fusionar dados
                   </a>
                 </Box>
+                <Box as="li">
+                  <a
+                    href="https://melife.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Melife
+                  </a>
+                </Box>
               </VStack>
             </Box>
             <Box>
