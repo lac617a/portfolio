@@ -53,7 +53,7 @@ const PROJECTS = [
     description:
       "Repositorio de asesorías y sistema de admin para manejo de registro.",
     src: IMGACHS,
-    link: "https://saqaswaplaybook.z13.web.core.windows.n",
+    link: "https://saqaswaplaybook.z13.web.core.windows.net",
   },
   {
     id: 3,
