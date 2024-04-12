@@ -20,7 +20,7 @@ export const Tools = () => {
           title="Native Piece"
           description="React primitive UI components. Use the best bits of ES6 and CSS to style your apps without stress"
           src={IMGNativePiece}
-          link="https://native-piece.com/"
+          link="https://native-piece.netlify.app/"
         />
         <Card
           title="react-switch-casu"

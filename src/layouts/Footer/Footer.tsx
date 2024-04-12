@@ -51,7 +51,7 @@ const Footer = () => {
               <VStack as="ul" className="footer-nav">
                 <Box as="li">
                   <a
-                    href="https://native-piece.com/"
+                    href="https://native-piece.netlify.app/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -177,7 +177,7 @@ const Footer = () => {
             <Typography>
               {t("created with")}&ensp;
               <Link
-                href="https://native-piece.com/"
+                href="https://native-piece.netlify.app/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
