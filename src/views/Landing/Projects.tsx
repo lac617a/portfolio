@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { Box, Heading, Typography, VStack } from "native-piece";
 import Card from "../../components/Card";
 
+import IMGPenafiel from "../../assets/img/projects/penafiel.png";
 import IMGACHS from "../../assets/img/projects/ACHS.png";
 import IMGGasco from "../../assets/img/projects/gasco.png";
 import IMGKmushicoin from "../../assets/img/projects/kmushicoin.png";
@@ -48,7 +49,23 @@ const PROJECTS = [
   //   link: "https://dev.barest.es/"
   // },
   {
+    id: 1,
+    title: "Audioguía Peñafiel",
+    description:
+      "Descubre relatos fascinantes, datos curiosos y anécdotas sobre la vida cotidiana a lo largo de su historia mientras te desplazas por sus rincones emblemáticos.",
+    src: IMGPenafiel,
+    link: "https://play.google.com/store/apps/details?id=com.penafielapp&pcampaignid=web_share",
+  },
+  {
     id: 2,
+    title: "Mydna digital",
+    description:
+      "Gestión de Carrera y todas las Soluciones Estratégicas de RRHH en un Único Lugar.",
+    src: "https://mydnadigital.com/home/b2b-img.png",
+    link: "https://mydnadigital.com/",
+  },
+  {
+    id: 3,
     title: "ACHS",
     description:
       "Repositorio de asesorías y sistema de admin para manejo de registro.",
@@ -56,7 +73,7 @@ const PROJECTS = [
     link: "https://saqaswaplaybook.z13.web.core.windows.net",
   },
   {
-    id: 3,
+    id: 4,
     title: "Kmushicoin",
     description:
       "Nos esforzamos diariamente por cuidar el medio ambiente, utilizando tecnología blockchain de última generación y soluciones de pago digital accesibles para todos.",
@@ -64,7 +81,7 @@ const PROJECTS = [
     link: "https://kmushicoin.co/",
   },
   {
-    id: 4,
+    id: 5,
     title: "Gasco",
     description: "Design System | GasUI",
     src: IMGGasco,
