@@ -51,6 +51,15 @@ const PROJECTS = [
       "Descubre relatos fascinantes, datos curiosos y anécdotas sobre la vida cotidiana a lo largo de su historia mientras te desplazas por sus rincones emblemáticos.",
     src: "https://i.ibb.co/27wN9gC/penafiel.png",
     link: "https://play.google.com/store/apps/details?id=com.penafielapp&pcampaignid=web_share",
+    stack: [
+      "React-Native",
+      "Vite",
+      "React",
+      "Nestjs",
+      "DynamoDB",
+      "Stripe",
+      "MUI",
+    ],
   },
   {
     id: 2,
@@ -59,6 +68,7 @@ const PROJECTS = [
       "Somos un equipo global de pensadores y creadores rápidos que diseñan futuros posibles.",
     src: "https://i.ibb.co/PFdwjJL/MEDIBLE.png",
     link: "https://medible.cl/en",
+    stack: ["Vite", "React", "SASS"],
   },
   {
     id: 3,
@@ -67,6 +77,7 @@ const PROJECTS = [
       "Gestión de Carrera y todas las Soluciones Estratégicas de RRHH en un Único Lugar.",
     src: "https://mydnadigital.com/home/b2b-img.png",
     link: "https://mydnadigital.com/",
+    stack: ["React", "Nextjs", "RadixUI", "Tailwind"],
   },
   {
     id: 4,
@@ -75,6 +86,7 @@ const PROJECTS = [
       "Repositorio de asesorías y sistema de admin para manejo de registro.",
     src: "https://i.ibb.co/3Cr5Jz7/ACHS.png",
     link: "https://saqaswaplaybook.z13.web.core.windows.net",
+    stack: ["Vite", "React", "PWA", "SASS"],
   },
   {
     id: 5,
@@ -82,7 +94,8 @@ const PROJECTS = [
     description:
       "Nos esforzamos diariamente por cuidar el medio ambiente, utilizando tecnología blockchain de última generación y soluciones de pago digital accesibles para todos.",
     src: "https://i.ibb.co/xCNJb83/kmushicoin.png",
-    link: "https://kmushicoin.co/",
+    link: "https://play.google.com/store/apps/details?id=com.kmushi.pay&pcampaignid=web_share",
+    stack: ["React-Native", "Vite", "React", "SASS"],
   },
   // {
   //   id: 5,
