@@ -59,6 +59,7 @@ const PROJECTS = [
       "DynamoDB",
       "Stripe",
       "MUI",
+      "TypeScript",
     ],
   },
   {
@@ -68,7 +69,7 @@ const PROJECTS = [
       "Somos un equipo global de pensadores y creadores rápidos que diseñan futuros posibles.",
     src: "https://i.ibb.co/PFdwjJL/MEDIBLE.png",
     link: "https://medible.cl/en",
-    stack: ["Vite", "React", "SASS"],
+    stack: ["Vite", "React", "SASS", "TypeScript"],
   },
   {
     id: 3,
@@ -77,7 +78,7 @@ const PROJECTS = [
       "Gestión de Carrera y todas las Soluciones Estratégicas de RRHH en un Único Lugar.",
     src: "https://mydnadigital.com/home/b2b-img.png",
     link: "https://mydnadigital.com/",
-    stack: ["React", "Nextjs", "RadixUI", "Tailwind"],
+    stack: ["React", "Nextjs", "RadixUI", "Tailwind", "TypeScript"],
   },
   {
     id: 4,
@@ -86,7 +87,7 @@ const PROJECTS = [
       "Repositorio de asesorías y sistema de admin para manejo de registro.",
     src: "https://i.ibb.co/3Cr5Jz7/ACHS.png",
     link: "https://saqaswaplaybook.z13.web.core.windows.net",
-    stack: ["Vite", "React", "PWA", "SASS"],
+    stack: ["Vite", "React", "PWA", "SASS", "TypeScript"],
   },
   {
     id: 5,
