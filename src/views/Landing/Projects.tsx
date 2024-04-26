@@ -1,11 +1,7 @@
-import { useTranslation } from "react-i18next";
 import { Box, Heading, Typography, VStack } from "native-piece";
-import Card from "../../components/Card";
+import { useTranslation } from "react-i18next";
 
-import IMGPenafiel from "../../assets/img/projects/penafiel.png";
-import IMGACHS from "../../assets/img/projects/ACHS.png";
-import IMGGasco from "../../assets/img/projects/gasco.png";
-import IMGKmushicoin from "../../assets/img/projects/kmushicoin.png";
+import Card from "../../components/Card";
 
 export const Projects = () => {
   const { t } = useTranslation();
@@ -45,7 +41,7 @@ const PROJECTS = [
   // {
   //   title: "Barest",
   //   description: "Juntamos todas las empresas y ofertas laborales de hostelería en un solo lugar.",
-  //   src: IMGBarest,
+  //   src: "https://i.ibb.co/CmPDrJw/Barest.png",
   //   link: "https://dev.barest.es/"
   // },
   {
@@ -53,11 +49,19 @@ const PROJECTS = [
     title: "Audioguía Peñafiel",
     description:
       "Descubre relatos fascinantes, datos curiosos y anécdotas sobre la vida cotidiana a lo largo de su historia mientras te desplazas por sus rincones emblemáticos.",
-    src: IMGPenafiel,
+    src: "https://i.ibb.co/27wN9gC/penafiel.png",
     link: "https://play.google.com/store/apps/details?id=com.penafielapp&pcampaignid=web_share",
   },
   {
     id: 2,
+    title: "Medible",
+    description:
+      "Somos un equipo global de pensadores y creadores rápidos que diseñan futuros posibles.",
+    src: "https://i.ibb.co/PFdwjJL/MEDIBLE.png",
+    link: "https://medible.cl/en",
+  },
+  {
+    id: 3,
     title: "Mydna digital",
     description:
       "Gestión de Carrera y todas las Soluciones Estratégicas de RRHH en un Único Lugar.",
@@ -65,26 +69,26 @@ const PROJECTS = [
     link: "https://mydnadigital.com/",
   },
   {
-    id: 3,
+    id: 4,
     title: "ACHS",
     description:
       "Repositorio de asesorías y sistema de admin para manejo de registro.",
-    src: IMGACHS,
+    src: "https://i.ibb.co/3Cr5Jz7/ACHS.png",
     link: "https://saqaswaplaybook.z13.web.core.windows.net",
   },
   {
-    id: 4,
+    id: 5,
     title: "Kmushicoin",
     description:
       "Nos esforzamos diariamente por cuidar el medio ambiente, utilizando tecnología blockchain de última generación y soluciones de pago digital accesibles para todos.",
-    src: IMGKmushicoin,
+    src: "https://i.ibb.co/xCNJb83/kmushicoin.png",
     link: "https://kmushicoin.co/",
   },
-  {
-    id: 5,
-    title: "Gasco",
-    description: "Design System | GasUI",
-    src: IMGGasco,
-    link: "https://www.npmjs.com/package/@gasco/core",
-  },
+  // {
+  //   id: 5,
+  //   title: "Gasco",
+  //   description: "Design System | GasUI",
+  //   src: "https://i.ibb.co/9TXy0q3/gasco.png",
+  //   link: "https://www.npmjs.com/package/@gasco/core",
+  // },
 ] as const;
