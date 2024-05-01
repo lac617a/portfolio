@@ -7,10 +7,8 @@
   "products": "Productos",
   "tools": "Herramientas",
   "made with": "Hecho con",
-  "coding": "Codificación",
   "about-me": "Acerca de mí",
   "contact-me": "Contáctame",
-  "what I do": "Lo que hago",
   "navigation": "Navegación",
   "created with": "creado con",
   "hi there, I'm": "Hola, soy",
@@ -23,7 +21,6 @@
   "resources for users": "Recursos para usuarios",
   "resources for devs": "Recursos para desarrolladores",
   "all rights reserved": "Reservados todos los derechos",
-  "logic and good practices": "Lógica y buenas prácticas",
   "some of my latest works": "Algunos de mis últimos trabajos",
   "i'm currently available for work": "Actualmente estoy disponible para trabajar.",
   "feel free to contact me": "No dude en ponerse en contacto conmigo. Estoy esperando tu mensaje.",
@@ -32,9 +29,5 @@
   "i'm always looking for new opportunities to help you build your product": "Siempre estoy buscando nuevas oportunidades para ayudarlo a desarrollar su producto.",
   "i help people and brands": "Ayudo a personas y marcas a alcanzar sus objetivos diseñando y construyendo productos digitales que resuelvan necesidades reales de los usuarios.",
   "case studies, digital products and design systems": "Estudios de casos, productos digitales y sistemas de diseño visualmente atractivos, centrados en el usuario y fáciles de usar.",
-  "building responsive websites with a Mobile First approach": "Creación de sitios web responsivos con un enfoque de 'Mobile First'. Brindando a los usuarios una experiencia enriquecedora que responde a cualquier dispositivo y tamaño de pantalla.",
-  "understand basic React concepts such as components, state, properties": "Comprenda conceptos básicos de React, como componentes, estado, propiedades, y utilice herramientas como React DevTools para ayudar a depurar y optimizar el rendimiento de su aplicación. También separe la lógica de presentación de la lógica de negocios en componentes separados o modulados.",
-  "i use add-on libraries and frameworks like Redux or React Router": "Utilizo bibliotecas y marcos complementarios como Redux o React Router para manejar la gestión y la navegación del estado de las aplicaciones. Me aseguro de optimizar el rendimiento de su aplicación utilizando técnicas como renderizado condicional y carga diferida. Mantengo su código organizado y legible utilizando patrones de diseño comunes y buenas prácticas de codificación.",
-  "i have experience working in agile environments": "Tengo experiencia trabajando en entornos ágiles y he trabajado durante todo el ciclo de desarrollo de productos, desde la idea hasta la entrega. He trabajado como profesional independiente para ayudar a los clientes a diseñar y crear productos únicos que fueran visualmente fuertes, funcionaran maravillosamente, fueran fáciles de usar, pero lo más importante, se centraran en la experiencia del usuario.",
   "i am a developer based in Colombia": "Desarrollador frontend con base en Colombia, enfocado en crear interfaces intuitivas y atractivas. Experiencia en entornos ágiles, cubriendo el ciclo completo de desarrollo. Destaco por mi capacidad para diseñar y desarrollar productos visuales sólidos, altamente funcionales y fáciles de usar, con un enfoque centrado en la experiencia del usuario. He trabajado como profesional independiente, colaborando con clientes para crear soluciones únicas y efectivas. Mi pasión por aprender y mejorar me impulsa a buscar constantemente nuevas formas de ampliar mis habilidades y conocimientos en el desarrollo frontend."
 }

@@ -4,9 +4,6 @@ import { Box, Button, Heading, Typography, VStack } from "native-piece";
 // ASSETS
 import CV from "../../assets/cv.pdf";
 import ImgAboutMe from "../../assets/img/about-me.png";
-import { FaReact } from "react-icons/fa";
-import { TbLogicAnd } from "react-icons/tb";
-import { BiCodeCurly } from "react-icons/bi";
 
 export const AboutMe = () => {
   const { t } = useTranslation();
@@ -50,46 +47,6 @@ export const AboutMe = () => {
           </Box>
         </VStack>
       </Box>
-      <VStack gap="24px" mediaMd={{ paddingInline: 20 }}>
-        <Heading className="text text-h4">{t("what I do")}</Heading>
-        <Box
-          display="grid"
-          gap="2rem"
-          paddingBottom="4rem"
-          gridTemplateRows="1fr"
-          gridTemplateColumns="repeat(auto-fit, minmax(200px, 1fr))"
-        >
-          <VStack gap="8px">
-            <BiCodeCurly color="#61DBFB" size={34} />
-            <Typography className="text text-h5">{t("coding")}</Typography>
-            <Typography className="text text-grey">
-              {t("building responsive websites with a Mobile First approach")}
-            </Typography>
-          </VStack>
-          <VStack gap="8px">
-            <FaReact color="#61DBFB" size={40} />
-            <Typography className="text text-h5">
-              React / React Native
-            </Typography>
-            <Typography className="text text-grey">
-              {t(
-                "understand basic React concepts such as components, state, properties"
-              )}
-            </Typography>
-          </VStack>
-          <VStack gap="8px">
-            <TbLogicAnd color="#61DBFB" size={40} />
-            <Typography className="text text-h5">
-              {t("logic and good practices")}
-            </Typography>
-            <Typography className="text text-grey">
-              {t(
-                "i use add-on libraries and frameworks like Redux or React Router"
-              )}
-            </Typography>
-          </VStack>
-        </Box>
-      </VStack>
     </Box>
   );
 };
