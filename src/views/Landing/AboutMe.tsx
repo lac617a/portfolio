@@ -1,5 +1,5 @@
-import { useTranslation } from 'react-i18next';
-import { Box, Button, Heading, Typography, VStack } from 'native-piece'
+import { useTranslation } from "react-i18next";
+import { Box, Button, Heading, Typography, VStack } from "native-piece";
 
 // ASSETS
 import CV from "../../assets/cv.pdf";
@@ -13,28 +13,21 @@ export const AboutMe = () => {
   const handleDownloadCv = () => {
     const anchor = document.createElement("a");
     anchor.href = CV;
-    anchor.download = "Dominyel Rivera_Front-end Developer";
+    anchor.download = "Dominyel Rivera_Developer";
     anchor.click();
-  }
+  };
+
   return (
     <Box as="section" id="about" className="container">
-      <Box
-        className="grid"
-        mediaMd={{ paddingInline: 20 }}>
+      <Box className="grid" mediaMd={{ paddingInline: 20 }}>
         <VStack gap="48px">
           <VStack gap="0.5rem">
-            <Typography className="text text-h5 text-info">{t("about-me")} 🔥</Typography>
+            <Typography className="text text-h5 text-info">
+              {t("about-me")} 🔥
+            </Typography>
             <Heading className="text text-h2">{t("get to know me")}</Heading>
             <VStack className="text text-grey" gap="1rem">
-              <Typography>
-                {t("i am a developer based in Colombia")}
-              </Typography>
-              <Typography>
-                {t("i have experience working in agile environments")}
-              </Typography>
-              <Typography>
-                {t("i am constantly looking")}
-              </Typography>
+              <Typography>{t("i am a developer based in Colombia")}</Typography>
             </VStack>
             <Button
               padding="1rem"
@@ -42,12 +35,18 @@ export const AboutMe = () => {
               color="var(--white)"
               backgroundColor="var(--color-three)"
               onClick={handleDownloadCv}
-            >{t("download CV")}</Button>
+            >
+              {t("download CV")}
+            </Button>
           </VStack>
         </VStack>
         <VStack gap="48px">
           <Box as="figure" height="375px">
-            <img src={ImgAboutMe} alt="about-me" style={{ objectFit: "contain" }} />
+            <img
+              src={ImgAboutMe}
+              alt="about-me"
+              style={{ objectFit: "contain" }}
+            />
           </Box>
         </VStack>
       </Box>
@@ -58,12 +57,11 @@ export const AboutMe = () => {
           gap="2rem"
           paddingBottom="4rem"
           gridTemplateRows="1fr"
-          gridTemplateColumns="repeat(auto-fit, minmax(200px, 1fr))">
+          gridTemplateColumns="repeat(auto-fit, minmax(200px, 1fr))"
+        >
           <VStack gap="8px">
             <BiCodeCurly color="#61DBFB" size={34} />
-            <Typography className="text text-h5">
-              {t("coding")}
-            </Typography>
+            <Typography className="text text-h5">{t("coding")}</Typography>
             <Typography className="text text-grey">
               {t("building responsive websites with a Mobile First approach")}
             </Typography>
@@ -74,7 +72,9 @@ export const AboutMe = () => {
               React / React Native
             </Typography>
             <Typography className="text text-grey">
-              {t("understand basic React concepts such as components, state, properties")}
+              {t(
+                "understand basic React concepts such as components, state, properties"
+              )}
             </Typography>
           </VStack>
           <VStack gap="8px">
@@ -83,11 +83,13 @@ export const AboutMe = () => {
               {t("logic and good practices")}
             </Typography>
             <Typography className="text text-grey">
-              {t("i use add-on libraries and frameworks like Redux or React Router")}
+              {t(
+                "i use add-on libraries and frameworks like Redux or React Router"
+              )}
             </Typography>
           </VStack>
         </Box>
       </VStack>
     </Box>
-  )
-}
+  );
+};
