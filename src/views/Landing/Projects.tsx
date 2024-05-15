@@ -46,6 +46,24 @@ const PROJECTS = [
   // },
   {
     id: 1,
+    title: "Rankerfy",
+    description:
+      "Rankerfy es una herramienta SEO que ha venido a mejorar el mercado. Si eres nichero o tienes un perfil de SEO técnico, te interesa.",
+    src: "https://i.ibb.co/4KsyWMY/rankerfy-landing.png",
+    link: "https://rankerfy.com/",
+    stack: [
+      "Vite",
+      "React",
+      "MUI",
+      "SCSS",
+      "Stripe",
+      "Storybook",
+      "Jest | TDD",
+      "TypeScript",
+    ],
+  },
+  {
+    id: 2,
     title: "Audioguía Peñafiel",
     description:
       "Descubre relatos fascinantes, datos curiosos y anécdotas sobre la vida cotidiana a lo largo de su historia mientras te desplazas por sus rincones emblemáticos.",
@@ -63,16 +81,16 @@ const PROJECTS = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: "Medible",
     description:
       "Somos un equipo global de pensadores y creadores rápidos que diseñan futuros posibles.",
     src: "https://i.ibb.co/PFdwjJL/MEDIBLE.png",
     link: "https://medible.cl/en",
-    stack: ["Vite", "React", "SASS", "TypeScript"],
+    stack: ["Vite", "React", "SCSS", "TypeScript"],
   },
   {
-    id: 3,
+    id: 4,
     title: "Mydna digital",
     description:
       "Gestión de Carrera y todas las Soluciones Estratégicas de RRHH en un Único Lugar.",
@@ -81,22 +99,22 @@ const PROJECTS = [
     stack: ["React", "Nextjs", "RadixUI", "Tailwind", "TypeScript"],
   },
   {
-    id: 4,
+    id: 5,
     title: "ACHS",
     description:
       "Repositorio de asesorías y sistema de admin para manejo de registro.",
     src: "https://i.ibb.co/3Cr5Jz7/ACHS.png",
     link: "https://saqaswaplaybook.z13.web.core.windows.net",
-    stack: ["Vite", "React", "PWA", "SASS", "TypeScript"],
+    stack: ["Vite", "React", "PWA", "SCSS", "TypeScript"],
   },
   {
-    id: 5,
+    id: 6,
     title: "Kmushicoin",
     description:
       "Nos esforzamos diariamente por cuidar el medio ambiente, utilizando tecnología blockchain de última generación y soluciones de pago digital accesibles para todos.",
     src: "https://i.ibb.co/xCNJb83/kmushicoin.png",
     link: "https://play.google.com/store/apps/details?id=com.kmushi.pay&pcampaignid=web_share",
-    stack: ["React-Native", "Vite", "React", "SASS"],
+    stack: ["React-Native", "Vite", "React", "SCSS"],
   },
   // {
   //   id: 5,
