@@ -23,7 +23,7 @@ export const Projects = () => {
               {t("case studies, digital products and design systems")}
             </Typography>
           </VStack>
-          {PROJECTS.slice(0, 2).map((item) => (
+          {PROJECTS.slice(0, 3).map((item) => (
             <Card key={item.id} {...item} />
           ))}
         </VStack>
