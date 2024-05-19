@@ -28,7 +28,7 @@ export const Projects = () => {
           ))}
         </VStack>
         <VStack gap="48px">
-          {PROJECTS.slice(2).map((item) => (
+          {PROJECTS.slice(3).map((item) => (
             <Card key={item.id} {...item} />
           ))}
         </VStack>
@@ -51,16 +51,7 @@ const PROJECTS = [
       "Rankerfy es una herramienta SEO que ha venido a mejorar el mercado. Si eres nichero o tienes un perfil de SEO técnico, te interesa.",
     src: "https://i.ibb.co/4KsyWMY/rankerfy-landing.png",
     link: "https://rankerfy.com/",
-    stack: [
-      "Vite",
-      "React",
-      "MUI",
-      "SCSS",
-      "Stripe",
-      "Storybook",
-      "Jest | TDD",
-      "TypeScript",
-    ],
+    stack: ["Por definir"],
   },
   {
     id: 2,
