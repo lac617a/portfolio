@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Box, Button, Heading, Typography, VStack } from "native-piece";
 
-// ASSETS
 import CV from "../../assets/cv.pdf";
 import ImgAboutMe from "../../assets/img/about-me.png";
 
