@@ -178,7 +178,7 @@ export const projects: Project[] = [
 		slug: "simba",
 		name: "Gestión Simba",
 		kind: "local",
-		place: "Restaurante",
+		place: "Piedecuesta",
 		line: "Empleados, asistencia y propinas de un restaurante.",
 		story:
 			"Una herramienta interna: quién vino, cuántas horas hizo y cómo se reparten las propinas. No tiene landing ni se puede mostrar mucho; vive detrás de un login, que es donde viven las herramientas que de verdad se usan.",
