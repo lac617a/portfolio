@@ -3,6 +3,7 @@ import type {ImageMetadata} from "astro";
 import atomic from "../assets/shots/atomic.webp";
 import casinoenchile from "../assets/shots/casinoenchile.webp";
 import compucentro from "../assets/shots/compucentro.webp";
+import daimon from "../assets/shots/daimon.webp";
 import dice from "../assets/shots/dice.webp";
 import latamwin from "../assets/shots/latamwin.webp";
 import luan from "../assets/shots/luan.webp";
@@ -173,6 +174,18 @@ export const projects: Project[] = [
 		stack: ["Next.js", "Tailwind", "TypeScript"],
 		url: "https://mias.profiya.com",
 		shots: [mias],
+	},
+	{
+		slug: "daimon",
+		name: "Daimón Pastelería",
+		kind: "local",
+		place: "Piedecuesta",
+		line: "Tortas por encargo, agendadas en tres pasos.",
+		story:
+			"Eliges la torta con su sabor, relleno y mensaje; escoges fecha y hora entre los espacios que de verdad están libres, y pagas el abono subiendo el comprobante. Después puedes consultar cómo va tu pedido. Todo se hornea por encargo, con dos días de anticipación.",
+		stack: ["Next.js", "Tailwind", "TypeScript"],
+		url: "https://daimon.profiya.com",
+		shots: [daimon],
 	},
 	{
 		slug: "simba",
