@@ -1,0 +1,48 @@
+---
+// Trazos hechos "a mano": subrayado, círculo y flecha.
+// Se dibujan solos al entrar en pantalla (ver Base.astro).
+interface Props {
+	kind?: "underline" | "circle" | "arrow" | "arrow-down";
+	class?: string;
+}
+
+const {kind = "underline", class: className} = Astro.props;
+
+const shapes = {
+	underline: {
+		viewBox: "0 0 240 16",
+		d: "M3 10.5c24-3.2 51-5.6 83-5.4 34 .2 58 3.6 88 3.4 22-.1 43-1.8 63-3.9",
+	},
+	circle: {
+		viewBox: "0 0 220 90",
+		d: "M121 8C73 4 18 15 9 41c-9 27 44 42 106 41 61-1 101-15 97-42C208 13 150 3 94 9 69 12 48 18 36 24",
+	},
+	arrow: {
+		viewBox: "0 0 90 50",
+		d: "M4 8c20-4 44 2 58 16 7 7 11 14 13 21m0 0c-6-5-12-7-20-7m20 7c1-8 4-14 9-19",
+	},
+	"arrow-down": {
+		viewBox: "0 0 50 80",
+		d: "M30 3C14 14 10 34 20 54c3 6 7 12 12 17m0 0c-7-2-13-2-19 1m19-1c-2-7-1-14 2-20",
+	},
+} as const;
+
+const shape = shapes[kind];
+---
+
+<svg
+	class:list={["draw pointer-events-none overflow-visible", className]}
+	viewBox={shape.viewBox}
+	preserveAspectRatio={kind === "underline" || kind === "circle" ? "none" : "xMidYMid meet"}
+	fill="none"
+	aria-hidden="true"
+>
+	<path
+		d={shape.d}
+		pathLength="1"
+		stroke="currentColor"
+		stroke-width={kind === "underline" ? 3 : 2.2}
+		stroke-linecap="round"
+		stroke-linejoin="round"
+		vector-effect="non-scaling-stroke"></path>
+</svg>

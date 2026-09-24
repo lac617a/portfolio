@@ -1,0 +1,46 @@
+---
+import Scribble from "./Scribble.astro";
+
+interface Props {
+	email: string;
+}
+
+const {email} = Astro.props;
+---
+
+<div class="mt-10 flex flex-wrap items-end gap-x-5 gap-y-3">
+	<a
+		href={`mailto:${email}`}
+		class="group relative font-display text-[clamp(1.5rem,5vw,3rem)] leading-none font-[380] break-all transition-colors hover:text-accent"
+	>
+		{email}
+		<Scribble kind="underline" class="absolute -bottom-3 left-0 h-3 w-full text-accent" />
+	</a>
+	<button
+		type="button"
+		data-copy={email}
+		class="label mb-1 cursor-pointer rounded-sm border border-line px-2 py-1 transition-colors hover:border-ink-soft hover:text-ink"
+	>
+		<span data-copy-label>copiar</span>
+	</button>
+</div>
+
+<script>
+	function bindCopy() {
+		for (const button of document.querySelectorAll<HTMLButtonElement>("[data-copy]")) {
+			if (button.dataset.bound) continue;
+			button.dataset.bound = "true";
+			const label = button.querySelector("[data-copy-label]")!;
+			button.addEventListener("click", async () => {
+				try {
+					await navigator.clipboard.writeText(button.dataset.copy!);
+					label.textContent = "copiado ✓";
+				} catch {
+					label.textContent = "no pude copiarlo";
+				}
+				setTimeout(() => (label.textContent = "copiar"), 2200);
+			});
+		}
+	}
+	document.addEventListener("astro:page-load", bindCopy);
+</script>
