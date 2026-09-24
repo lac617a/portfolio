@@ -98,7 +98,15 @@ export const projects: Project[] = [
 		line: "Una ruta medieval de 13 paradas, contada al oído.",
 		story:
 			"Una app para recorrer la villa de Peñafiel a pie en más o menos una hora: el castillo, las iglesias, las plazas, cada parada con su historia en audio, en español y en inglés. App en React Native, panel en React y una API en NestJS que cobra con Stripe.",
-		stack: ["React Native", "React", "NestJS", "DynamoDB", "Stripe", "MUI", "TypeScript"],
+		stack: [
+			"React Native",
+			"React",
+			"NestJS",
+			"DynamoDB",
+			"Stripe",
+			"MUI",
+			"TypeScript",
+		],
 		url: "https://play.google.com/store/apps/details?id=com.penafielapp",
 		shots: [penafielApp, penafielStops, penafielIcon],
 		phone: true,
@@ -194,7 +202,7 @@ export const projects: Project[] = [
 		slug: "compucentro",
 		name: "CompuCentro",
 		kind: "local",
-		place: "Colombia",
+		place: "Piedecuesta",
 		line: "Una tienda de componentes para armar o mejorar tu PC.",
 		story:
 			"Procesadores, tarjetas gráficas, RAM, discos. Un catálogo pensado para quien ya sabe lo que busca y quiere comparar rápido, con envíos a toda Colombia.",
