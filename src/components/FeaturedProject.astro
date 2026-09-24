@@ -1,0 +1,135 @@
+---
+import Scribble from "./Scribble.astro";
+import Shot from "./Shot.astro";
+import {KINDS, hostOf, type Project} from "../data/projects";
+
+interface Props {
+	project: Project;
+	index: number;
+}
+
+const {project, index} = Astro.props;
+const flip = index % 2 === 1;
+// Inclinaciones distintas por proyecto, para que no parezcan salidas del mismo molde.
+const tilts = [-1.6, 1.2, -0.8, 1.8, -1.2];
+const tilt = tilts[index % tilts.length];
+const isGroup = project.shots.length > 1 && !project.phone;
+---
+
+<article
+	id={project.slug}
+	class="grid scroll-mt-10 items-center gap-10 md:grid-cols-12 md:gap-12"
+>
+	<!-- Imagen -->
+	<div class:list={["relative md:col-span-7", flip && "md:order-2"]}>
+		{
+			project.phone ? (
+				<div class="relative mx-auto flex max-w-md items-end justify-center gap-4 sm:gap-6">
+					<Shot
+						src={project.shots[0]}
+						alt={`${project.name}: pantalla de bienvenida de la app`}
+						phone
+						tilt={-3}
+						tape="none"
+						sizes="(min-width: 768px) 240px, 45vw"
+						class="w-[46%]"
+					/>
+					<Shot
+						src={project.shots[1]}
+						alt={`${project.name}: las 13 paradas de la ruta`}
+						phone
+						tilt={2.5}
+						tape="top"
+						sizes="(min-width: 768px) 240px, 45vw"
+						class="mb-10 w-[46%]"
+					/>
+				</div>
+			) : isGroup ? (
+				<div class="casino-fan relative aspect-16/11">
+					{project.shots.map((shot, i) => (
+						<Shot
+							src={shot}
+							alt={`${project.links?.[i]?.label ?? project.name}: página de inicio`}
+							tilt={[-5, -1.5, 2, 5][i]}
+							tape={i === 3 ? "top" : "none"}
+							sizes="(min-width: 1024px) 520px, 80vw"
+							class="fan-card w-[78%]"
+							style={`--i: ${i}`}
+						/>
+					))}
+				</div>
+			) : (
+				<a href={project.url} target="_blank" rel="noopener noreferrer" class="block" tabindex="-1" aria-hidden="true">
+					<Shot src={project.shots[0]} alt={`${project.name}: página de inicio`} tilt={tilt} />
+				</a>
+			)
+		}
+
+		{
+			project.note && (
+				<p
+					class:list={[
+						"hand pointer-events-none absolute z-10 flex items-center gap-1 text-2xl text-accent",
+						flip ? "-bottom-9 left-2 sm:-bottom-7" : "-bottom-9 right-2 sm:-bottom-7",
+					]}
+				>
+					<Scribble kind="arrow" class:list={["h-7 w-12", flip ? "order-2 -scale-x-100 -rotate-12" : "rotate-[200deg]"]} />
+					<span class={flip ? "-rotate-2" : "rotate-2"}>{project.note}</span>
+				</p>
+			)
+		}
+	</div>
+
+	<!-- Texto -->
+	<div class:list={["md:col-span-5", flip && "md:order-1"]}>
+		<p class="label mb-3">
+			{KINDS[project.kind].label}
+			{project.place && <> · {project.place}</>}
+		</p>
+		<h3 class="text-3xl leading-tight font-[420] tracking-tight sm:text-4xl">{project.name}</h3>
+		<p class="mt-2 font-display text-lg text-ink-soft italic sm:text-xl">{project.line}</p>
+		<p class="mt-5 leading-relaxed">{project.story}</p>
+
+		{
+			project.stack.length > 0 && (
+				<p class="label mt-5 leading-relaxed">{project.stack.join(" · ")}</p>
+			)
+		}
+
+		<p class="mt-6 flex flex-wrap gap-x-5 gap-y-2">
+			{
+				isGroup && project.links ? (
+					project.links.map((link) => (
+						<a class="ink-link" href={link.url} target="_blank" rel="noopener noreferrer">
+							{link.label} <span aria-hidden="true">↗</span>
+						</a>
+					))
+				) : (
+					<a class="ink-link" href={project.url} target="_blank" rel="noopener noreferrer">
+						{hostOf(project.url)} <span aria-hidden="true">↗</span>
+					</a>
+				)
+			}
+		</p>
+	</div>
+</article>
+
+<style>
+	/* Las cuatro marcas, como fotos tiradas sobre la mesa. */
+	.casino-fan :global(.fan-card) {
+		/* Gana a la clase `relative` que trae Shot. */
+		position: absolute;
+		top: calc(var(--i) * 7%);
+		left: calc(var(--i) * 7.3%);
+		z-index: calc(var(--i) + 1);
+		transition: transform 0.5s cubic-bezier(0.3, 0.7, 0.2, 1);
+	}
+	@media (hover: hover) {
+		.casino-fan:hover :global(.fan-card) {
+			transform: translate(calc((var(--i) - 1.5) * 18px), calc((var(--i) - 1.5) * -6px));
+		}
+		.casino-fan :global(.fan-card:hover) {
+			z-index: 10;
+		}
+	}
+</style>

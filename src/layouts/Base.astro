@@ -1,0 +1,96 @@
+---
+import {ClientRouter} from "astro:transitions";
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import {me} from "../data/me";
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = `${me.name} · ${me.role}`,
+	description = "Hago interfaces desde Colombia para casinos en Chile, una plataforma de RR.HH. en 20 países, un pueblo medieval en España y negocios de barrio. Esto es lo que he hecho.",
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL("/og.png", Astro.site);
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="author" content={me.name} />
+		<link rel="canonical" href={canonical} />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<meta name="theme-color" content="#f4efe6" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#17140f" media="(prefers-color-scheme: dark)" />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="es_CO" />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImage} />
+		<meta name="twitter:card" content="summary_large_image" />
+
+		<!-- Antes de pintar: tema guardado o el del sistema, para que no parpadee. -->
+		<script is:inline>
+			(() => {
+				const apply = () => {
+					let theme;
+					try {
+						theme = localStorage.getItem("theme");
+					} catch {}
+					if (theme !== "light" && theme !== "dark") {
+						theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+					}
+					document.documentElement.dataset.theme = theme;
+				};
+				apply();
+				document.addEventListener("astro:after-swap", apply);
+			})();
+		</script>
+
+		<ClientRouter />
+	</head>
+	<body class="flex min-h-dvh flex-col">
+		<a
+			href="#contenido"
+			class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-70 focus:bg-ink focus:px-3 focus:py-2 focus:text-paper"
+		>
+			Saltar al contenido
+		</a>
+		<Header />
+		<main id="contenido" class="flex-1">
+			<slot />
+		</main>
+		<Footer />
+
+		<script>
+			// Los trazos a mano se dibujan cuando entran en pantalla.
+			function watchDrawings() {
+				const drawings = document.querySelectorAll<SVGSVGElement>("svg.draw:not(.is-visible)");
+				const io = new IntersectionObserver(
+					(entries) => {
+						for (const entry of entries) {
+							if (!entry.isIntersecting) continue;
+							entry.target.classList.add("is-visible");
+							io.unobserve(entry.target);
+						}
+					},
+					{threshold: 0.6},
+				);
+				for (const svg of drawings) io.observe(svg);
+			}
+			document.addEventListener("astro:page-load", watchDrawings);
+		</script>
+	</body>
+</html>

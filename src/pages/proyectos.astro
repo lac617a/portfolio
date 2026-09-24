@@ -1,0 +1,247 @@
+---
+import {Image} from "astro:assets";
+import Base from "../layouts/Base.astro";
+import Shot from "../components/Shot.astro";
+import {KINDS, hostOf, projects, type Kind} from "../data/projects";
+
+const words = ["cero", "un", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez", "once", "doce", "trece", "catorce", "quince", "dieciséis", "diecisiete", "dieciocho", "diecinueve", "veinte"];
+const inWords = (n: number) => words[n] ?? String(n);
+const capitalized = (s: string) => s[0].toUpperCase() + s.slice(1);
+
+const counts = projects.reduce(
+	(acc, p) => ({...acc, [p.kind]: (acc[p.kind] ?? 0) + 1}),
+	{} as Partial<Record<Kind, number>>,
+);
+const filters = (Object.keys(KINDS) as Kind[]).filter((k) => counts[k]);
+---
+
+<Base
+	title="Archivo · Dominyel Rivera"
+	description={`Los ${projects.length} proyectos de Dominyel Rivera: clientes, negocios locales, productos y librerías open source.`}
+>
+	<section class="mx-auto max-w-6xl px-4 pt-16 pb-12 sm:px-6 sm:pt-24">
+		<p class="label mb-6">El archivo</p>
+		<h1 class="max-w-[18ch] text-[clamp(2.1rem,5.6vw,4.2rem)] leading-[1.08] font-[360] tracking-[-0.015em]">
+			{capitalized(inWords(projects.length))} proyectos, sin orden de importancia.
+		</h1>
+		<p class="mt-6 max-w-prose text-lg leading-relaxed text-ink-soft">
+			Empresas con las que trabajé, negocios de aquí cerca, un producto, un par de cosas que hice porque quise y
+			{" "}{inWords(counts["open-source"] ?? 0)} librerías. Toca cualquiera para abrirlo.
+		</p>
+
+		<div class="mt-10 flex flex-wrap gap-2" role="group" aria-label="Filtrar proyectos">
+			<button type="button" class="filter" data-filter="all" aria-pressed="true">
+				Todo <span class="count">{projects.length}</span>
+			</button>
+			{
+				filters.map((kind) => (
+					<button type="button" class="filter" data-filter={kind} aria-pressed="false" title={KINDS[kind].hint}>
+						{KINDS[kind].label} <span class="count">{counts[kind]}</span>
+					</button>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="mx-auto max-w-6xl px-4 sm:px-6" aria-label="Proyectos">
+		<ol class="border-t border-ink" data-archive>
+			{
+				projects.map((project, i) => (
+					<li id={project.slug} data-kind={project.kind} class="scroll-mt-6 border-b border-dashed border-line">
+						<details name="archivo" class="group">
+							<summary
+								class="grid cursor-pointer list-none grid-cols-[2.2rem_1fr_auto] items-baseline gap-x-3 py-5 transition-colors hover:bg-paper-deep/60 sm:grid-cols-[3rem_1fr_12rem_auto] sm:gap-x-5 sm:px-2 lg:grid-cols-[3rem_1fr_12rem_14rem_auto] [&::-webkit-details-marker]:hidden"
+								data-preview={project.shots.length && !project.phone ? project.slug : undefined}
+							>
+								<span class="label">{String(i + 1).padStart(2, "0")}</span>
+								<span class="min-w-0">
+									<span class="block font-display text-2xl leading-tight font-[420] tracking-tight transition-colors group-open:text-accent sm:text-[1.7rem]">
+										{project.name}
+									</span>
+									<span class="mt-1 block text-ink-soft">{project.line}</span>
+								</span>
+								<span class="label hidden sm:block">
+									{KINDS[project.kind].label}
+									{project.place && (
+										<>
+											<br />
+											{project.place}
+										</>
+									)}
+								</span>
+								<span class="label hidden leading-relaxed lg:block">
+									{project.stack.slice(0, 4).join(" · ")}
+								</span>
+								<span
+									class="self-center font-display text-2xl text-ink-soft transition-transform duration-300 group-open:rotate-45"
+									aria-hidden="true"
+								>
+									+
+								</span>
+							</summary>
+
+							<div class="grid gap-8 pt-2 pb-12 sm:pl-[4.25rem] md:grid-cols-12 md:gap-10">
+								<div class="leading-relaxed md:col-span-5">
+									<p class="label mb-3 sm:hidden">
+										{KINDS[project.kind].label}
+										{project.place && <> · {project.place}</>}
+									</p>
+									<p>{project.story}</p>
+									{project.stack.length > 0 && (
+										<p class="label mt-4 leading-relaxed">{project.stack.join(" · ")}</p>
+									)}
+									<p class="mt-5 flex flex-wrap gap-x-5 gap-y-2">
+										{(project.links ?? [{label: hostOf(project.url), url: project.url}]).map((link) => (
+											<a class="ink-link" href={link.url} target="_blank" rel="noopener noreferrer">
+												{link.label} <span aria-hidden="true">↗</span>
+											</a>
+										))}
+									</p>
+								</div>
+
+								{project.shots.length > 0 && (
+									<div class:list={["md:col-span-7", project.phone && "flex max-w-sm gap-4"]}>
+										{project.phone ? (
+											project.shots.slice(0, 2).map((shot, s) => (
+												<Shot
+													src={shot}
+													alt={`${project.name}: captura ${s + 1}`}
+													phone
+													tape="none"
+													tilt={s ? 2 : -2}
+													sizes="200px"
+													class="w-1/2"
+												/>
+											))
+										) : (
+											<Shot
+												src={project.shots[0]}
+												alt={`${project.name}: página de inicio`}
+												tilt={i % 2 ? 0.8 : -0.8}
+												sizes="(min-width: 768px) 560px, 90vw"
+											/>
+										)}
+									</div>
+								)}
+							</div>
+						</details>
+					</li>
+				))
+			}
+		</ol>
+		<p class="label mt-6" data-empty hidden>Nada por aquí con ese filtro.</p>
+	</section>
+
+	<!-- Vista previa que sigue al cursor (solo con mouse). -->
+	<div
+		class="preview pointer-events-none fixed top-0 left-0 z-50 hidden w-72 bg-print p-1.5 shadow-[0_12px_30px_-10px_var(--shadow)]"
+		aria-hidden="true"
+		data-preview-box
+	>
+		{
+			projects
+				.filter((p) => p.shots.length && !p.phone)
+				.map((p) => (
+					<Image src={p.shots[0]} alt="" width={288} class="hidden h-auto w-full" data-slug={p.slug} loading="lazy" />
+				))
+		}
+	</div>
+</Base>
+
+<style>
+	.filter {
+		cursor: pointer;
+		border: 1px solid var(--line);
+		border-radius: 3px;
+		padding: 0.4rem 0.75rem;
+		font-size: 0.9rem;
+		color: var(--ink-soft);
+		transition:
+			color 0.2s,
+			border-color 0.2s,
+			background-color 0.2s;
+	}
+	.filter:hover {
+		color: var(--ink);
+		border-color: var(--ink-soft);
+	}
+	.filter[aria-pressed="true"] {
+		background: var(--ink);
+		border-color: var(--ink);
+		color: var(--paper);
+	}
+	.filter .count {
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		opacity: 0.7;
+		margin-left: 0.15rem;
+	}
+	.preview {
+		rotate: -3deg;
+		translate: var(--x, 0) var(--y, 0);
+	}
+</style>
+
+<script>
+	function setupArchive() {
+		const list = document.querySelector<HTMLOListElement>("[data-archive]");
+		if (!list || list.dataset.bound) return;
+		list.dataset.bound = "true";
+
+		const items = [...list.querySelectorAll<HTMLLIElement>(":scope > li")];
+		const empty = document.querySelector<HTMLElement>("[data-empty]")!;
+
+		// Filtros
+		const buttons = [...document.querySelectorAll<HTMLButtonElement>("[data-filter]")];
+		for (const button of buttons) {
+			button.addEventListener("click", () => {
+				const kind = button.dataset.filter;
+				for (const b of buttons) b.setAttribute("aria-pressed", String(b === button));
+				let visible = 0;
+				for (const item of items) {
+					const show = kind === "all" || item.dataset.kind === kind;
+					item.hidden = !show;
+					if (show) visible++;
+				}
+				empty.hidden = visible > 0;
+			});
+		}
+
+		// /proyectos#mias abre ese proyecto directamente.
+		const openFromHash = () => {
+			if (!location.hash) return;
+			const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+			const details = target?.querySelector("details");
+			if (!target || !details) return;
+			details.open = true;
+			target.scrollIntoView({block: "start"});
+		};
+		openFromHash();
+		window.addEventListener("hashchange", openFromHash);
+
+		// Vista previa flotante
+		const box = document.querySelector<HTMLElement>("[data-preview-box]")!;
+		if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+		const images = [...box.querySelectorAll<HTMLImageElement>("img")];
+		let current: string | null = null;
+
+		const show = (slug: string | null) => {
+			current = slug;
+			box.classList.toggle("hidden", !slug);
+			for (const img of images) img.classList.toggle("hidden", img.dataset.slug !== slug);
+		};
+
+		list.addEventListener("pointermove", (event) => {
+			const summary = (event.target as Element).closest<HTMLElement>("summary[data-preview]");
+			const slug = summary && !summary.parentElement!.hasAttribute("open") ? summary.dataset.preview! : null;
+			if (slug !== current) show(slug);
+			if (slug) {
+				box.style.setProperty("--x", `${event.clientX + 24}px`);
+				box.style.setProperty("--y", `${event.clientY - 90}px`);
+			}
+		});
+		list.addEventListener("pointerleave", () => show(null));
+		list.addEventListener("toggle", () => show(null), true);
+	}
+	document.addEventListener("astro:page-load", setupArchive);
+</script>

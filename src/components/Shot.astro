@@ -1,0 +1,61 @@
+---
+// Una captura "impresa" y pegada con cinta al cuaderno.
+// Se endereza un poco al pasar el mouse.
+import type {ImageMetadata} from "astro";
+import {Image} from "astro:assets";
+
+interface Props {
+	src: ImageMetadata;
+	alt: string;
+	tilt?: number;
+	phone?: boolean;
+	tape?: "top" | "corners" | "none";
+	sizes?: string;
+	eager?: boolean;
+	class?: string;
+	style?: string;
+}
+
+const {
+	src,
+	alt,
+	tilt = 0,
+	phone = false,
+	tape = "top",
+	sizes = "(min-width: 1024px) 640px, 92vw",
+	eager = false,
+	class: className,
+	style = "",
+} = Astro.props;
+
+const widths = phone ? [240, 360, 506] : [480, 800, 1200, 1440];
+---
+
+<figure class:list={["group/shot relative", className]} style={`--tilt: ${tilt}deg; ${style}`}>
+	{tape === "top" && <span class="tape -top-3 left-1/2 -translate-x-1/2 -rotate-2" />}
+	{
+		tape === "corners" && (
+			<>
+				<span class="tape -top-2 -left-6 w-20 -rotate-[32deg]" />
+				<span class="tape -right-6 -bottom-2 w-20 -rotate-[32deg]" />
+			</>
+		)
+	}
+	<div
+		class:list={[
+			"bg-print p-1.5 shadow-[0_1px_2px_var(--shadow),0_12px_28px_-12px_var(--shadow)] transition-transform duration-500 ease-out sm:p-2",
+			"rotate-(--tilt) group-hover/shot:rotate-[calc(var(--tilt)*0.3)] motion-reduce:transition-none",
+			phone ? "rounded-[1.1rem]" : "rounded-[3px]",
+		]}
+	>
+		<Image
+			src={src}
+			alt={alt}
+			widths={widths}
+			sizes={sizes}
+			loading={eager ? "eager" : "lazy"}
+			class:list={["block h-auto w-full", phone ? "rounded-[0.8rem]" : "rounded-[1px]"]}
+		/>
+	</div>
+	<slot />
+</figure>

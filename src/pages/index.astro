@@ -1,0 +1,213 @@
+---
+import {Image} from "astro:assets";
+import Base from "../layouts/Base.astro";
+import FeaturedProject from "../components/FeaturedProject.astro";
+import Scribble from "../components/Scribble.astro";
+import Workshop from "../components/Workshop.astro";
+import CopyEmail from "../components/CopyEmail.astro";
+import {featured, projects} from "../data/projects";
+import {me} from "../data/me";
+import portrait from "../assets/dominyel.png";
+
+const bySlug = Object.fromEntries(projects.map((p) => [p.slug, p]));
+
+// Las piezas de la frase principal: cada una apunta a un proyecto real.
+const hero = [
+	{text: "casinos en Chile", href: "#latamwin", shot: bySlug.latamwin.shots[0], tilt: -6},
+	{text: "una plataforma de RR.HH. en 20 países", href: "#mydna", shot: bySlug.mydna.shots[0], tilt: 4},
+	{text: "un pueblo medieval en España", href: "#penafiel", shot: bySlug.penafiel.shots[2], tilt: -3},
+	{text: "una tienda de pijamas en Piedecuesta", href: "/proyectos#mias", shot: bySlug.mias.shots[0], tilt: 5},
+];
+---
+
+<Base>
+	<!-- Saludo -->
+	<section class="relative mx-auto max-w-6xl px-4 pt-16 pb-24 sm:px-6 sm:pt-24 sm:pb-32">
+		<p class="hand absolute top-68 right-6 hidden max-w-44 rotate-3 text-2xl text-ink-soft xl:block" aria-hidden="true">
+			<Scribble kind="arrow" class="mb-1 h-8 w-14 -scale-x-100 rotate-20 text-accent" />
+			pasa el mouse por las fotitos
+		</p>
+		<p class="label mb-8 flex flex-wrap items-center gap-x-3 gap-y-1">
+			<span>{me.place} · {me.country}</span>
+			{
+				me.available && (
+					<span class="flex items-center gap-1.5 text-leaf">
+						<span class="relative flex size-2">
+							<span class="absolute inline-flex size-full animate-ping rounded-full bg-leaf opacity-50 motion-reduce:hidden" />
+							<span class="relative inline-flex size-2 rounded-full bg-leaf" />
+						</span>
+						con agenda para proyectos nuevos
+					</span>
+				)
+			}
+		</p>
+
+		<h1 class="max-w-[22ch] text-[clamp(2.1rem,5.6vw,4.4rem)] leading-[1.08] font-[360] tracking-[-0.015em]">
+			Hola, soy Dominyel. Hago interfaces para{" "}
+			{
+				hero.map((piece, i) => (
+					<>
+						<a href={piece.href} class="hero-piece group whitespace-normal">
+							<span
+								class="relative top-[-0.08em] mr-[0.18em] inline-block h-[0.72em] w-[1.15em] overflow-hidden rounded-[3px] bg-print p-0.5 align-middle shadow-[0_1px_3px_var(--shadow)] transition-transform duration-300 group-hover:scale-[1.9] group-hover:rotate-0 motion-reduce:transition-none"
+								style={`rotate: ${piece.tilt}deg`}
+								aria-hidden="true"
+							>
+								<Image
+									src={piece.shot}
+									alt=""
+									width={120}
+									class="size-full rounded-[1px] object-cover object-top"
+									loading="eager"
+								/>
+							</span>
+							<span class="decoration-accent/50 decoration-[0.06em] underline-offset-[0.14em] group-hover:text-accent group-hover:underline">
+								{piece.text}
+							</span>
+						</a>
+						{i < hero.length - 2 ? ", " : i === hero.length - 2 ? " y " : "."}
+					</>
+				))
+			}
+		</h1>
+
+		<div class="mt-12 grid gap-8 sm:mt-16 md:grid-cols-12">
+			<p class="max-w-prose text-lg leading-relaxed text-ink-soft md:col-span-7">
+				Llevo {me.years} haciendo frontend. Trabajo con equipos grandes y con negocios de barrio, y en los
+				ratos libres publico librerías en npm que usa gente que no conozco.
+			</p>
+			<div class="flex flex-wrap items-center gap-x-6 gap-y-4 md:col-span-5 md:justify-end">
+				<a
+					href="/proyectos"
+					class="rounded-[3px] bg-ink px-5 py-3 text-paper transition-[background-color,transform] hover:-rotate-1 hover:bg-accent motion-reduce:transition-none"
+				>
+					Ver los {projects.length} proyectos
+				</a>
+				<a href="#contacto" class="ink-link">Escríbeme</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Trabajo -->
+	<section id="trabajo" class="mx-auto max-w-6xl scroll-mt-8 px-4 sm:px-6">
+		<header class="mb-16 flex flex-col gap-3 border-t border-ink pt-6 sm:flex-row sm:items-baseline sm:justify-between">
+			<h2 class="text-3xl font-[420] sm:text-4xl">Algunas cosas que he hecho</h2>
+			<a href="/proyectos" class="label ink-link">
+				{featured.length} de {projects.length} · ver el archivo completo →
+			</a>
+		</header>
+
+		<div class="flex flex-col gap-28 sm:gap-36">
+			{featured.map((project, i) => <FeaturedProject project={project} index={i} />)}
+		</div>
+
+		<div class="relative mt-32 flex flex-col items-center text-center">
+			<p class="hand text-3xl text-ink-soft sm:text-4xl">…y otros {projects.length - featured.length} más</p>
+			<Scribble kind="arrow-down" class="my-3 h-14 w-9 text-ink-soft" />
+			<a
+				href="/proyectos"
+				class="rounded-[3px] border border-ink px-5 py-3 transition-colors hover:bg-ink hover:text-paper"
+			>
+				Abrir el archivo
+			</a>
+		</div>
+	</section>
+
+	<!-- Taller -->
+	<section id="taller" class="mx-auto mt-40 max-w-6xl scroll-mt-8 px-4 sm:px-6">
+		<header class="mb-10 grid gap-4 border-t border-ink pt-6 md:grid-cols-12">
+			<h2 class="text-3xl font-[420] sm:text-4xl md:col-span-5">El taller</h2>
+			<p class="leading-relaxed text-ink-soft md:col-span-7">
+				Librerías que hice primero para mí y después dejé publicadas, por si a alguien más le servían. A
+				algunas sí les sirvieron.
+			</p>
+		</header>
+		<Workshop />
+	</section>
+
+	<!-- Sobre mí -->
+	<section id="sobre-mi" class="mx-auto mt-40 max-w-6xl scroll-mt-8 px-4 sm:px-6">
+		<div class="grid gap-12 border-t border-ink pt-6 md:grid-cols-12">
+			<h2 class="text-3xl font-[420] sm:text-4xl md:col-span-12">Sobre mí</h2>
+
+			<figure class="relative mx-auto w-56 sm:w-64 md:col-span-4 md:mx-0 md:w-auto md:max-w-72">
+				<Image
+					src={portrait}
+					alt="Dominyel Rivera, de pie, con gafas y camiseta negra"
+					widths={[280, 420, 560]}
+					sizes="(min-width: 768px) 288px, 256px"
+					class="portrait h-auto w-full"
+				/>
+				<figcaption class="hand absolute top-10 -right-4 flex rotate-6 items-start gap-1 text-2xl text-accent sm:-right-10">
+					<Scribble kind="arrow" class="mt-4 h-7 w-12 rotate-160" />
+					este soy yo
+				</figcaption>
+			</figure>
+
+			<div class="space-y-5 leading-relaxed md:col-span-8 md:col-start-5 md:pt-4">
+				<p class="font-display text-2xl leading-snug font-[380] sm:text-[1.7rem]">
+					Hago frontend desde hace {me.years}. He trabajado dentro de equipos ágiles, con sprints y tableros, y
+					también solo, con el cliente al otro lado de un WhatsApp.
+				</p>
+				<p>
+					Me importa lo que casi no se nota: que un formulario no te haga pensar, que una página cargue antes de
+					que te aburras, que la tienda de alguien venda un poco más. Casi todo lo hago con React, Next.js,
+					TypeScript y Tailwind, y cuando hace falta me meto al backend con NestJS o al móvil con React Native.
+				</p>
+				<p>
+					Varios de los sitios de esta página viven bajo <a
+						class="ink-link"
+						href="https://profiya.com"
+						target="_blank"
+						rel="noopener noreferrer">profiya.com</a
+					>, mi propia plataforma. Y cuando no estoy en proyectos de clientes, hago herramientas: librerías para
+					npm y cosas pequeñas como <a class="ink-link" href="#maker">Piñata Maker</a>.
+				</p>
+				<p class="pt-2">
+					<a class="ink-link" href={me.cv} download="Dominyel-Rivera-CV.pdf">Descargar mi CV</a>
+					<span class="label ml-1">(PDF)</span>
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contacto -->
+	<section id="contacto" class="mx-auto mt-40 max-w-6xl scroll-mt-8 px-4 sm:px-6">
+		<div class="border-t border-ink pt-6">
+			<h2 class="max-w-[16ch] text-[clamp(2.2rem,6vw,4.2rem)] leading-[1.05] font-[360]">
+				¿Tienes algo en mente?
+			</h2>
+			<p class="mt-6 max-w-prose text-lg text-ink-soft">
+				Un producto nuevo, una tienda que no vende lo que debería o una librería que se te quedó a medias.
+				Escríbeme y te respondo yo, no un formulario.
+			</p>
+
+			<CopyEmail email={me.email} />
+
+			<ul class="mt-10 flex flex-wrap gap-x-6 gap-y-2">
+				<li><a class="ink-link" href={me.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+				<li><a class="ink-link" href={me.links.github} target="_blank" rel="noopener noreferrer">GitHub</a></li>
+				<li><a class="ink-link" href={me.links.npm} target="_blank" rel="noopener noreferrer">npm</a></li>
+				<li><a class="ink-link" href={me.links.instagram} target="_blank" rel="noopener noreferrer">Instagram</a></li>
+			</ul>
+
+			<p class="mt-16 text-ink-soft">Un abrazo,</p>
+			<p class="hand -mt-1 -rotate-3 text-5xl text-accent">Dominyel</p>
+		</div>
+	</section>
+</Base>
+
+<style>
+	/* La foto se imprime sobre el papel: gris y fundida con el fondo. */
+	.portrait {
+		filter: grayscale(1) contrast(1.05);
+		mix-blend-mode: multiply;
+	}
+	:global([data-theme="dark"]) .portrait {
+		mix-blend-mode: normal;
+		filter: grayscale(1) brightness(0.92);
+	}
+	.hero-piece:focus-visible {
+		outline-offset: 6px;
+	}
+</style>
