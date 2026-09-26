@@ -189,12 +189,12 @@ export const projects: Project[] = [
 	},
 	{
 		slug: "simba",
-		name: "Gestión Simba",
+		name: "Simba Parrilla",
 		kind: "local",
 		place: "Piedecuesta",
-		line: "Empleados, asistencia y propinas de un restaurante.",
+		line: "Landing, reservas y gestión interna de una parrilla.",
 		story:
-			"Una herramienta interna: quién vino, cuántas horas hizo y cómo se reparten las propinas. No tiene landing ni se puede mostrar mucho; vive detrás de un login, que es donde viven las herramientas que de verdad se usan.",
+			"Empezó como la herramienta interna del restaurante: empleados, asistencia y cómo se reparten las propinas. Ahora también tiene su landing, con la carta completa y sus precios, reseñas de Google, el horario del día y cómo llegar. Las reservas se llenan en un formulario que abre WhatsApp con el mensaje listo, y el equipo las administra desde el mismo panel de gestión.",
 		stack: ["Next.js", "Tailwind", "TypeScript"],
 		url: "https://simba.profiya.com",
 		shots: [simba],
