@@ -216,10 +216,10 @@ export const projects: Project[] = [
 		name: "CompuCentro",
 		kind: "local",
 		place: "Piedecuesta",
-		line: "Una tienda de componentes para armar o mejorar tu PC.",
+		line: "Tienda de tecnología y servicio técnico: arma, mejora o repara tu PC.",
 		story:
-			"Procesadores, tarjetas gráficas, RAM, discos. Un catálogo pensado para quien ya sabe lo que busca y quiere comparar rápido, con envíos a toda Colombia.",
-		stack: ["React", "Vite"],
+			"Un catálogo con el precio a la vista, que se recorre por categoría o por marca. Sin registros ni carrito: cada producto se cotiza por WhatsApp en un clic, y se recibe por envío a toda Colombia, a domicilio en el área metropolitana o recogiéndolo en la tienda, y se puede pagar contraentrega. También ofrece armado de PC a medida, mantenimiento y formateo. Por dentro corre con tailwindcss-atomic, mi propio plugin.",
+		stack: ["React", "Vite", "Tailwind", "tailwindcss-atomic"],
 		url: "https://compucentro.profiya.com",
 		shots: [compucentro],
 	},
@@ -230,7 +230,7 @@ export const projects: Project[] = [
 		year: 2026,
 		line: "CSS atómico para Tailwind, con el motor en Rust.",
 		story:
-			"Parte cada utilidad de Tailwind en una clase por declaración, le pone un hash corto y reescribe los className para que coincidan. El hashing corre en Rust compilado a WebAssembly. Funciona con Vite, Webpack, Rollup, Next.js y Astro.",
+			"Parte cada utilidad de Tailwind en una clase por declaración, le pone un hash corto y reescribe los className para que coincidan. El hashing corre en Rust compilado a WebAssembly. Funciona con Vite, Webpack, Rollup, Next.js y Astro, y ya corre en producción en CompuCentro.",
 		stack: ["Rust", "WebAssembly", "PostCSS", "TypeScript"],
 		url: "https://atomic.profiya.com/es",
 		links: [
