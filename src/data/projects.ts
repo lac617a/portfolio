@@ -5,6 +5,7 @@ import casinoenchile from "../assets/shots/casinoenchile.webp";
 import compucentro from "../assets/shots/compucentro.webp";
 import daimon from "../assets/shots/daimon.webp";
 import dice from "../assets/shots/dice.webp";
+import edutech from "../assets/shots/edutech.png";
 import kmushicoin from "../assets/shots/kmushicoin.webp";
 import latamwin from "../assets/shots/latamwin.webp";
 import luan from "../assets/shots/luan.webp";
@@ -121,8 +122,8 @@ export const projects: Project[] = [
 		kind: "producto",
 		line: "Una suite de SEO para quien se toma el SEO en serio.",
 		story:
-			"Keywords con volumen real, tracking diario de posiciones, competidores, backlinks, canibalizaciones y contenido flojo. Abre por oleadas cerradas, con lista de espera.",
-		stack: [],
+			"Keywords con volumen real, tracking diario de posiciones, competidores, backlinks, canibalizaciones y contenido flojo. Abre por oleadas cerradas, con lista de espera. Por dentro es una app en React con MUI: tablas de datos y gráficas con Recharts, login con Auth0, pagos con Stripe y varios idiomas con i18next.",
+		stack: ["React", "Vite", "MUI", "Auth0", "Stripe", "Recharts", "i18next", "GSAP"],
 		url: "https://rankerfy.com",
 		shots: [rankerfy],
 		featured: true,
@@ -175,6 +176,19 @@ export const projects: Project[] = [
 		stack: ["Bootstrap", "jQuery", "Laravel"],
 		url: "https://kmushicoin.co/es",
 		shots: [kmushicoin],
+	},
+	{
+		slug: "edutech",
+		name: "EduTech / WeRLearning",
+		kind: "cliente",
+		place: "Remoto, con Nexitus",
+		line: "El panel interno para gestionar clases, horarios y metas.",
+		story:
+			"EduTech acompaña a colegios, universidades y empresas con plataformas de aprendizaje y mentoría docente. Trabajando en remoto con Nexitus, que llevaba el proyecto, construí el panel interno donde se gestionan las clases, los horarios y las metas: la parte que no se ve desde afuera, pero donde se organiza todo el trabajo. El sitio público de la empresa no es mío; mi parte vive detrás del login.",
+		stack: ["Next.js 13", "Tailwind", "GraphQL", "React Native", "NestJS", "PostgreSQL"],
+		url: "https://edutechca.com",
+		links: [{label: "Sitio de EduTech", url: "https://edutechca.com"}],
+		shots: [edutech],
 	},
 	{
 		slug: "mias",
