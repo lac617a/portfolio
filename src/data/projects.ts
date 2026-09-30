@@ -5,6 +5,7 @@ import casinoenchile from "../assets/shots/casinoenchile.webp";
 import compucentro from "../assets/shots/compucentro.webp";
 import daimon from "../assets/shots/daimon.webp";
 import dice from "../assets/shots/dice.webp";
+import kmushicoin from "../assets/shots/kmushicoin.webp";
 import latamwin from "../assets/shots/latamwin.webp";
 import luan from "../assets/shots/luan.webp";
 import maker from "../assets/shots/maker.webp";
@@ -162,6 +163,18 @@ export const projects: Project[] = [
 		stack: ["React", "SCSS", "TypeScript"],
 		url: "https://medible.cl/en",
 		shots: [medible],
+	},
+	{
+		slug: "kmushicoin",
+		name: "Kmushicoin",
+		kind: "cliente",
+		place: "Colombia",
+		line: "El sitio de una criptomoneda colombiana que nació en un criadero de escarabajos.",
+		story:
+			"Kmushicoin salió en 2019 de Tierra Viva Escarabajos, que exportaba escarabajos a Japón y necesitaba cobrar sin complicaciones. Hice el frontend del sitio: la presentación, las páginas de compra y venta, descargas del monedero, el mapa de comercios y todo en cinco idiomas. El backend en Laravel lo hizo Carmelo Campos.",
+		stack: ["Bootstrap", "jQuery", "Laravel"],
+		url: "https://kmushicoin.co/es",
+		shots: [kmushicoin],
 	},
 	{
 		slug: "mias",
