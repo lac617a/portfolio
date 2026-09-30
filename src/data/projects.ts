@@ -204,10 +204,10 @@ export const projects: Project[] = [
 		name: "Luan Fotografía",
 		kind: "local",
 		place: "Piedecuesta",
-		line: "Un estudio de fotografía: retratos, moda y producto.",
+		line: "Un estudio de fotos para bebés, maternidad y familias, con catálogo de temáticas.",
 		story:
-			"Un sitio donde las fotos hablan primero y el botón de agendar sesión nunca queda lejos.",
-		stack: ["React", "Vite"],
+			"El estudio prepara escenarios temáticos y el sitio es su catálogo: cada temática tiene sus fotos y un código propio, se buscan por nombre o por código y se agrupan por categoría. Para agendar eliges una, si quieres dejas tu nombre y una fecha aproximada, y se abre WhatsApp con el mensaje listo, temática y código incluidos, para que nadie se confunda de escenario.",
+		stack: ["React", "Vite", "Tailwind", "Supabase"],
 		url: "https://luan.profiya.com",
 		shots: [luan],
 	},
