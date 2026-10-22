@@ -28,12 +28,16 @@ const shapes = {
 } as const;
 
 const shape = shapes[kind];
+// El subrayado y el círculo se estiran con lo que marcan (preserveAspectRatio="none").
+// Si además llevaran non-scaling-stroke, Chrome mediría mal el guion y el trazo saldría
+// cortado; por eso solo las flechas, que no se deforman, mantienen el grosor fijo.
+const stretched = kind === "underline" || kind === "circle";
 ---
 
 <svg
 	class:list={["draw pointer-events-none overflow-visible", className]}
 	viewBox={shape.viewBox}
-	preserveAspectRatio={kind === "underline" || kind === "circle" ? "none" : "xMidYMid meet"}
+	preserveAspectRatio={stretched ? "none" : "xMidYMid meet"}
 	fill="none"
 	aria-hidden="true"
 >
@@ -41,8 +45,8 @@ const shape = shapes[kind];
 		d={shape.d}
 		pathLength="1"
 		stroke="currentColor"
-		stroke-width={kind === "underline" ? 3 : 2.2}
+		stroke-width={stretched ? 4 : 2.2}
 		stroke-linecap="round"
 		stroke-linejoin="round"
-		vector-effect="non-scaling-stroke"></path>
+		vector-effect={stretched ? undefined : "non-scaling-stroke"}></path>
 </svg>

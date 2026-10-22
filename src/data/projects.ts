@@ -11,6 +11,7 @@ import latamwin from "../assets/shots/latamwin.webp";
 import luan from "../assets/shots/luan.webp";
 import maker from "../assets/shots/maker.webp";
 import medible from "../assets/shots/medible.webp";
+import menu from "../assets/shots/menu.webp";
 import mias from "../assets/shots/mias.webp";
 import mydna from "../assets/shots/mydna.webp";
 import penafielIcon from "../assets/shots/penafiel-icon.png";
@@ -59,6 +60,20 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+	{
+		slug: "menu",
+		name: "Profiya Menú",
+		kind: "producto",
+		place: "Colombia y Venezuela",
+		line: "El menú digital de un negocio de comida, con los pedidos directo a su WhatsApp.",
+		story:
+			"El comercio sube su carta desde el celular, con fotos, precios, tamaños y adiciones, y la comparte por enlace o con un QR en las mesas. El cliente arma su pedido, el total se suma solo y al negocio le llega por WhatsApp con la dirección y la forma de pago. Sin comisión por venta: planes fijos desde gratis, con sedes, horarios y una dirección propia en tunegocio.profiya.com.",
+		stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind", "shadcn/ui", "Drizzle", "PostgreSQL", "Better Auth"],
+		url: "https://menu.profiya.com",
+		shots: [menu],
+		featured: true,
+		note: "0% de comisión",
+	},
 	{
 		slug: "mydna",
 		name: "MyDNA HRTech",
@@ -138,8 +153,6 @@ export const projects: Project[] = [
 		stack: ["Next.js", "Tailwind", "TypeScript"],
 		url: "https://maker.profiya.com",
 		shots: [maker],
-		featured: true,
-		note: "gratis, sin registrarte",
 	},
 	{
 		slug: "dice",

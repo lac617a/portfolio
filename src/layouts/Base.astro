@@ -30,8 +30,7 @@ const ogImage = new URL("/og.png", Astro.site);
 		<link rel="canonical" href={canonical} />
 		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
-		<meta name="theme-color" content="#f4efe6" media="(prefers-color-scheme: light)" />
-		<meta name="theme-color" content="#17140f" media="(prefers-color-scheme: dark)" />
+		<meta name="theme-color" content="#141414" />
 
 		<meta property="og:type" content="website" />
 		<meta property="og:locale" content="es_CO" />
@@ -41,7 +40,7 @@ const ogImage = new URL("/og.png", Astro.site);
 		<meta property="og:image" content={ogImage} />
 		<meta name="twitter:card" content="summary_large_image" />
 
-		<!-- Antes de pintar: tema guardado o el del sistema, para que no parpadee. -->
+		<!-- Antes de pintar: el tema guardado o, si no hay, el oscuro de YOYDEV, para que no parpadee. -->
 		<script is:inline>
 			(() => {
 				const apply = () => {
@@ -49,9 +48,7 @@ const ogImage = new URL("/og.png", Astro.site);
 					try {
 						theme = localStorage.getItem("theme");
 					} catch {}
-					if (theme !== "light" && theme !== "dark") {
-						theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-					}
+					if (theme !== "light" && theme !== "dark") theme = "dark";
 					document.documentElement.dataset.theme = theme;
 				};
 				apply();
