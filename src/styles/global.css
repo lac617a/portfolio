@@ -9,38 +9,37 @@
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 /*
- * Papel de día, papel de noche.
+ * Los colores de YOYDEV: carbón, blanco y el verde lima del logo.
+ * El oscuro es el de siempre; el claro es la alternativa del botón "día".
  * Los colores viven en variables para que el cambio de tema sea
  * un solo atributo en <html>, sin duplicar clases dark:.
+ * Contraste medido: lima sobre carbón 14.4:1, texto suave 7.3:1;
+ * en claro, el verde #3f6b00 da 5.8:1 y el texto suave 6.4:1.
  */
 :root {
-	--paper: #f4efe6;
-	--paper-deep: #ebe3d4;
-	--ink: #1f1b16;
-	--ink-soft: #5b5248;
-	--line: #d5cab7;
-	--accent: #b0401c;
-	--leaf: #3d6a44;
-	--tape: rgb(233 214 158 / 0.78);
-	--print: #fffcf6;
-	--shadow: rgb(60 45 25 / 0.14);
-	--grain-opacity: 0.35;
-	color-scheme: light;
+	--paper: #141414;
+	--paper-deep: #1c1c1b;
+	--ink: #f2f2f0;
+	--ink-soft: #a3a39e;
+	--line: #2e2e2c;
+	--accent: #c6f432;
+	--leaf: #c6f432;
+	--print: #1e1e1d;
+	--shadow: rgb(0 0 0 / 0.5);
+	color-scheme: dark;
 }
 
-[data-theme="dark"] {
-	--paper: #17140f;
-	--paper-deep: #211c16;
-	--ink: #ece4d6;
-	--ink-soft: #a99f8f;
-	--line: #3a3329;
-	--accent: #e2784f;
-	--leaf: #8dbb90;
-	--tape: rgb(196 176 118 / 0.32);
-	--print: #2a241c;
-	--shadow: rgb(0 0 0 / 0.45);
-	--grain-opacity: 0.18;
-	color-scheme: dark;
+[data-theme="light"] {
+	--paper: #f5f5f2;
+	--paper-deep: #ebebe6;
+	--ink: #141414;
+	--ink-soft: #5a5a55;
+	--line: #d6d6d0;
+	--accent: #3f6b00;
+	--leaf: #3f6b00;
+	--print: #ffffff;
+	--shadow: rgb(20 20 20 / 0.12);
+	color-scheme: light;
 }
 
 @theme inline {
@@ -72,17 +71,6 @@
 	body {
 		min-height: 100dvh;
 		background: var(--paper);
-	}
-
-	/* Grano de papel: ruido SVG muy suave por encima de todo. */
-	body::before {
-		content: "";
-		position: fixed;
-		inset: 0;
-		pointer-events: none;
-		opacity: var(--grain-opacity);
-		z-index: 60;
-		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.28 0 0 0 0 0.18 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 	}
 
 	::selection {
@@ -121,17 +109,6 @@
 	.ink-link:hover {
 		color: var(--accent);
 		text-decoration-color: var(--accent);
-	}
-
-	/* Cinta de enmascarar para pegar capturas al "cuaderno". */
-	.tape {
-		position: absolute;
-		width: 96px;
-		height: 26px;
-		background: var(--tape);
-		box-shadow: 0 1px 1px rgb(0 0 0 / 0.06);
-		clip-path: polygon(3% 0, 97% 4%, 100% 50%, 96% 100%, 2% 96%, 0 48%);
-		z-index: 2;
 	}
 
 	.label {

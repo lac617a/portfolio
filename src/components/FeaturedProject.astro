@@ -10,9 +10,6 @@ interface Props {
 
 const {project, index} = Astro.props;
 const flip = index % 2 === 1;
-// Inclinaciones distintas por proyecto, para que no parezcan salidas del mismo molde.
-const tilts = [-1.6, 1.2, -0.8, 1.8, -1.2];
-const tilt = tilts[index % tilts.length];
 const isGroup = project.shots.length > 1 && !project.phone;
 ---
 
@@ -29,8 +26,6 @@ const isGroup = project.shots.length > 1 && !project.phone;
 						src={project.shots[0]}
 						alt={`${project.name}: pantalla de bienvenida de la app`}
 						phone
-						tilt={-3}
-						tape="none"
 						sizes="(min-width: 768px) 240px, 45vw"
 						class="w-[46%]"
 					/>
@@ -38,8 +33,6 @@ const isGroup = project.shots.length > 1 && !project.phone;
 						src={project.shots[1]}
 						alt={`${project.name}: las 13 paradas de la ruta`}
 						phone
-						tilt={2.5}
-						tape="top"
 						sizes="(min-width: 768px) 240px, 45vw"
 						class="mb-10 w-[46%]"
 					/>
@@ -51,7 +44,6 @@ const isGroup = project.shots.length > 1 && !project.phone;
 							src={shot}
 							alt={`${project.links?.[i]?.label ?? project.name}: página de inicio`}
 							tilt={[-5, -1.5, 2, 5][i]}
-							tape={i === 3 ? "top" : "none"}
 							sizes="(min-width: 1024px) 520px, 80vw"
 							class="fan-card w-[78%]"
 							style={`--i: ${i}`}
@@ -60,7 +52,7 @@ const isGroup = project.shots.length > 1 && !project.phone;
 				</div>
 			) : (
 				<a href={project.url} target="_blank" rel="noopener noreferrer" class="block" tabindex="-1" aria-hidden="true">
-					<Shot src={project.shots[0]} alt={`${project.name}: página de inicio`} tilt={tilt} />
+					<Shot src={project.shots[0]} alt={`${project.name}: página de inicio`} />
 				</a>
 			)
 		}
